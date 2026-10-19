@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./ds-base.js"></script></helmet>
+<div style="font-family:var(--font-brand);background:var(--surface-page);color:var(--text-primary);min-height:100vh">
+<header style="{{ headerStyle }}">
+<a href="WebsiteHomepage.dc.html"><img src="assets/logo/logo-horizontal-dourado.png" style="height:65px;width:178px" alt="RA Créditos"></a>
+<sc-if value="{{ !isMobile }}" hint-placeholder-val="{{ true }}">
+<nav style="display:flex;align-items:center;gap:34px">
+<a href="Serviços.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Serviços</a>
+<a href="Sobre Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" style="background:var(--maroon-700);color:var(--text-inverse);font-weight:var(--fw-bold);font-size:14px;padding:11px 24px;border-radius:var(--radius-pill);text-decoration:none;border:1px solid var(--accent-gold)" style-hover="background:var(--maroon-300)">Fale Connosco</a>
+</nav>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ toggleMenu }}" aria-label="Abrir menu" style="background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px">
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+</button>
+</sc-if>
+</header>
+<sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:200;background:var(--maroon-700);display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,5vw,64px);background:var(--maroon-700)">
+<img src="assets/logo/logo-horizontal-branco.svg" style="height:26px">
+<button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background:none;border:none;color:var(--text-inverse);font-size:26px;cursor:pointer;line-height:1">×</button>
+</div>
+<nav style="display:flex;flex-direction:column;padding:8px clamp(20px,5vw,64px)">
+<a href="Serviços.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Serviços</a>
+<a href="Sobre Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" onClick="{{ closeMenu }}" style="margin-top:24px;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:14px;border-radius:var(--radius-pill);text-decoration:none;text-align:center">Fale Connosco</a>
+</nav>
+</div>
+</sc-if>
+<div style="height:110px"></div>
+
+<section style="padding:0 clamp(20px,5vw,64px) var(--space-8);max-width:800px;margin:0 auto;text-align:center">
+<h1 style="font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:var(--fw-black);color:var(--accent-maroon);margin:0 0 18px">Construa a sua carreira connosco</h1>
+<p style="font-size:15.5px;line-height:1.65;color:var(--text-secondary);font-weight:var(--fw-light);margin:0 auto;max-width:600px">Junte-se a uma rede com autonomia e crescimento no setor financeiro, apoiada por parcerias sólidas e ferramentas próprias.</p>
+</section>
+
+<section style="max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,64px) var(--space-8)">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px">
+<sc-for list="{{ advantages }}" as="a" hint-placeholder-count="4">
+<div style="background:var(--cream-300);border-radius:var(--radius-lg);padding:22px;display:flex;flex-direction:column;gap:10px">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#AB9150" stroke-width="1.7"><path d="{{ a.iconPath }}"></path></svg>
+<div style="font-size:14px;line-height:1.5;color:var(--text-primary);font-weight:var(--fw-regular)">{{ a.text }}</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="background:var(--maroon-700);color:var(--text-inverse);padding:var(--space-9) clamp(20px,5vw,64px)">
+<div style="max-width:640px;margin:0 auto">
+<h2 style="font-size:24px;font-weight:var(--fw-black);margin:0 0 26px;text-align:center">Trabalhe connosco</h2>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<input placeholder="Nome*" style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+<input placeholder="Apelido*" style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+</div>
+<input placeholder="E-mail*" style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+<input placeholder="Telefone*" style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+<select style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+<option>Método*</option><option>Gestor Independente</option><option>Gestor Associado</option>
+</select>
+<label style="border:1px dashed var(--border-on-dark);border-radius:var(--radius-sm);padding:16px;font-size:13.5px;color:var(--text-inverse-muted);font-weight:var(--fw-light);text-align:center;cursor:pointer">Carregar CV<input type="file" style="display:none"></label>
+<button style="background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:14px;border-radius:var(--radius-pill);border:none;cursor:pointer">Enviar</button>
+</div>
+</div>
+</section>
+
+<section style="max-width:700px;margin:0 auto;padding:var(--space-9) clamp(20px,5vw,64px)">
+<h2 style="font-size:20px;font-weight:var(--fw-black);color:var(--accent-maroon);margin:0 0 16px;text-align:center">O que faz um Gestor RA Créditos?</h2>
+<p style="font-size:14.5px;line-height:1.7;color:var(--text-secondary);font-weight:var(--fw-light);margin:0 0 14px">É o elo entre clientes e oportunidades de financiamento, ajudando cada pessoa a encontrar a solução de crédito mais adequada ao seu perfil.</p>
+<p style="font-size:14.5px;line-height:1.7;color:var(--text-secondary);font-weight:var(--fw-light);margin:0">Acompanha cada cliente de forma personalizada e dedica-se ao desenvolvimento de parcerias com instituições financeiras.</p>
+</section>
+
+<footer style="background:var(--maroon-700);color:var(--text-inverse-muted);text-align:center;padding:24px;font-size:12.5px;font-weight:var(--fw-light);border-top:1px solid var(--border-on-dark)">Peculiar Time, Lda. — Intermediário de Crédito Vinculado n.º 0004632, registado no Banco de Portugal.</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false, mobileMenuOpen: false, scrolled: false };
+  advantages = [
+    { text: "Parcerias com entidades financeiras nacionais.", iconPath: "M4 20h16M6 20V9l6-4 6 4v11M10 20v-5h4v5" },
+    { text: "Flexibilidade total de tempo e localização.", iconPath: "M12 8v4l3 3M12 3a9 9 0 100 18 9 9 0 000-18z" },
+    { text: "Recursos de marketing disponíveis.", iconPath: "M3.5 6h17v12h-17zM3.5 10h17" },
+    { text: "Programa de capacitação desde o início.", iconPath: "M4 19.5V6a2 2 0 012-2h13v13.5M4 19.5a2 2 0 002 2h13v-4H6a2 2 0 00-2 2z" },
+  ];
+  componentDidMount() {
+    this.checkSize = () => this.setState({ isMobile: window.innerWidth < 900 });
+    this.checkSize();
+    window.addEventListener('resize', this.checkSize);
+    this.onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.checkSize);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+  renderVals() {
+    return {
+      advantages: this.advantages,
+      isMobile: this.state.isMobile,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMenu: () => this.setState({ mobileMenuOpen: false }),
+      headerStyle: `position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,64px);transition:background .25s ease,box-shadow .25s ease;background:var(--maroon-700);box-shadow:${this.state.scrolled ? '0 4px 20px rgba(0,0,0,0.18)' : 'none'}`,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

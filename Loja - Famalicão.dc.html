@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./ds-base.js"></script><script src="./image-slot.js"></script></helmet>
+<div style="font-family:var(--font-brand);background:var(--surface-page);color:var(--text-primary);min-height:100vh">
+<header style="{{ headerStyle }}">
+<a href="WebsiteHomepage.dc.html"><img src="assets/logo/logo-horizontal-dourado.png" style="height:65px;width:178px" alt="RA Créditos"></a>
+<sc-if value="{{ !isMobile }}" hint-placeholder-val="{{ true }}">
+<nav style="display:flex;align-items:center;gap:34px">
+<a href="Serviços.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Serviços</a>
+<a href="Sobre Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" style="background:var(--maroon-700);color:var(--text-inverse);font-weight:var(--fw-bold);font-size:14px;padding:11px 24px;border-radius:var(--radius-pill);text-decoration:none;border:1px solid var(--accent-gold)" style-hover="background:var(--maroon-300)">Fale Connosco</a>
+</nav>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ toggleMenu }}" aria-label="Abrir menu" style="background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px">
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+</button>
+</sc-if>
+</header>
+<sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:200;background:var(--maroon-700);display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,5vw,64px);background:var(--maroon-700)">
+<img src="assets/logo/logo-horizontal-branco.svg" style="height:26px">
+<button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background:none;border:none;color:var(--text-inverse);font-size:26px;cursor:pointer;line-height:1">×</button>
+</div>
+<nav style="display:flex;flex-direction:column;padding:8px clamp(20px,5vw,64px)">
+<a href="Serviços.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Serviços</a>
+<a href="Sobre Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" onClick="{{ closeMenu }}" style="margin-top:24px;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:14px;border-radius:var(--radius-pill);text-decoration:none;text-align:center">Fale Connosco</a>
+</nav>
+</div>
+</sc-if>
+<div style="height:110px"></div>
+
+<section style="padding:0 clamp(20px,5vw,64px) var(--space-9);max-width:1140px;margin:0 auto">
+<image-slot id="loja-famalicao-foto" shape="rounded" radius="16" placeholder="Foto: fachada/interior da loja de Famalicão" style="width:100%;aspect-ratio:21/9;margin-bottom:32px"></image-slot>
+<h1 style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:var(--fw-black);color:var(--accent-maroon);margin:0 0 32px">Equipa de V. N. Famalicão</h1>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-bottom:var(--space-9)">
+<sc-for list="{{ team }}" as="m" hint-placeholder-count="14">
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px;display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center">
+<div style="position:relative;width:88px;height:88px">
+<div style="position:absolute;inset:0;border-radius:50%;background:var(--accent-gold)"></div>
+<image-slot id="{{ m.slotId }}" shape="circle" placeholder="{{ m.name }}" style="position:absolute;inset:6px"></image-slot>
+</div>
+<div style="font-size:15px;font-weight:var(--fw-bold);color:var(--accent-maroon)">{{ m.name }}</div>
+<div style="font-size:12.5px;color:#B98A8F;font-weight:var(--fw-bold);text-transform:uppercase;letter-spacing:0.02em">Gestor(a) de Créditos</div>
+<div style="font-size:12.5px;color:var(--text-secondary);font-weight:var(--fw-light)">{{ m.email }}</div>
+<div style="font-size:12.5px;color:var(--text-secondary);font-weight:var(--fw-light)">(chamada para rede móvel nacional)</div>
+<div style="display:flex;gap:10px;margin-top:4px">
+<a href="{{ m.profileHref }}" style="font-size:12.5px;font-weight:var(--fw-bold);color:var(--accent-maroon);text-decoration:none">Ver Mais</a>
+<a href="Ficha de Gestor - Ana Cunha.dc.html" style="font-size:12.5px;font-weight:var(--fw-bold);color:var(--accent-maroon);text-decoration:none">Ver Mais</a>
+</div>
+</div>
+</sc-for>
+</div>
+<p style="max-width:760px;margin:0 auto;text-align:center;font-size:15px;line-height:1.7;color:var(--text-secondary);font-weight:var(--fw-light)">Pode passar horas a comparar bancos, ou pode falar connosco e resolver em minutos. Oferecemos soluções financeiras rápidas e transparentes para Crédito Habitação, Auto-Construção, Hipotecário, Obras, Renegociação de Crédito, Consolidação, Pessoal e Automóvel. Visite-nos e descubra as propostas que temos à sua medida.</p>
+</section>
+
+<footer style="background:var(--maroon-700);color:var(--text-inverse-muted);text-align:center;padding:24px;font-size:12.5px;font-weight:var(--fw-light);border-top:1px solid var(--border-on-dark)">Peculiar Time, Lda. — Intermediário de Crédito Vinculado n.º 0004632, registado no Banco de Portugal.</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false, mobileMenuOpen: false, scrolled: false };
+  team = ["André Gomes", "Bárbara Magalhães", "Bárbara Teixeira", "Cláudia Rodrigues", "Cristina Barroso", "Elisete Oliveira", "Fernando Ribeiro", "Isabel Nascimento", "José Ferreira", "Miguel Borda", "Pedro Santos", "Raquel Gomes", "Sara Machado", "Sílvia Ribeiro"].map((name, i) => {
+    const parts = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(' ');
+    return { name, slotId: `famalicao-${i}`, email: `${parts[0]}.${parts[parts.length - 1]}@racreditos.pt`, profileHref: "#" };
+  });
+  componentDidMount() {
+    this.checkSize = () => this.setState({ isMobile: window.innerWidth < 900 });
+    this.checkSize();
+    window.addEventListener('resize', this.checkSize);
+    this.onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.checkSize);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+  renderVals() {
+    return {
+      team: this.team,
+      isMobile: this.state.isMobile,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMenu: () => this.setState({ mobileMenuOpen: false }),
+      headerStyle: `position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,64px);transition:background .25s ease,box-shadow .25s ease;background:var(--maroon-700);box-shadow:${this.state.scrolled ? '0 4px 20px rgba(0,0,0,0.18)' : 'none'}`,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

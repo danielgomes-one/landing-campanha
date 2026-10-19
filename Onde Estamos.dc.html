@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./ds-base.js"></script><script src="./image-slot.js"></script></helmet>
+<div style="font-family:var(--font-brand);background:var(--surface-page);color:var(--text-primary);min-height:100vh">
+<header style="{{ headerStyle }}">
+<a href="WebsiteHomepage.dc.html"><img src="assets/logo/logo-horizontal-dourado.png" style="height:65px;width:178px" alt="RA Créditos"></a>
+<sc-if value="{{ !isMobile }}" hint-placeholder-val="{{ true }}">
+<nav style="display:flex;align-items:center;gap:34px">
+<a href="Serviços.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Serviços</a>
+<a href="Sobre Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" style="background:var(--maroon-700);color:var(--text-inverse);font-weight:var(--fw-bold);font-size:14px;padding:11px 24px;border-radius:var(--radius-pill);text-decoration:none;border:1px solid var(--accent-gold)" style-hover="background:var(--maroon-300)">Fale Connosco</a>
+</nav>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ toggleMenu }}" aria-label="Abrir menu" style="background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px">
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+</button>
+</sc-if>
+</header>
+<sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:200;background:var(--maroon-700);display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,5vw,64px);background:var(--maroon-700)">
+<img src="assets/logo/logo-horizontal-branco.svg" style="height:26px">
+<button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background:none;border:none;color:var(--text-inverse);font-size:26px;cursor:pointer;line-height:1">×</button>
+</div>
+<nav style="display:flex;flex-direction:column;padding:8px clamp(20px,5vw,64px)">
+<a href="Serviços.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Serviços</a>
+<a href="Sobre Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" onClick="{{ closeMenu }}" style="margin-top:24px;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:14px;border-radius:var(--radius-pill);text-decoration:none;text-align:center">Fale Connosco</a>
+</nav>
+</div>
+</sc-if>
+<div style="height:110px"></div>
+
+<section style="padding:0 clamp(20px,5vw,64px) 0;max-width:1140px;margin:0 auto">
+<h1 style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:var(--fw-black);color:var(--accent-maroon);margin:0 0 24px">Onde Estamos</h1>
+<div style="display:flex;gap:8px;margin-bottom:28px">
+<button onClick="{{ setTab }}" data-tab="offices" style="{{ officesTabStyle }}">Offices</button>
+<button onClick="{{ setTab }}" data-tab="associates" style="{{ associatesTabStyle }}">Associates</button>
+</div>
+<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px">
+<select value="{{ distrito }}" onChange="{{ onDistritoChange }}" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:11px 16px;font-size:14px;font-family:var(--font-brand);color:var(--text-primary);background:var(--white)">
+<option value="">Distrito (todos)</option><option value="Braga">Braga</option><option value="Porto">Porto</option>
+</select>
+<select value="{{ concelho }}" onChange="{{ onConcelhoChange }}" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:11px 16px;font-size:14px;font-family:var(--font-brand);color:var(--text-primary);background:var(--white)">
+<option value="">Concelho (todos)</option><option>Vila Nova de Famalicão</option><option>Santo Tirso</option><option>Barcelos</option><option>Póvoa de Varzim</option>
+</select>
+</div>
+</section>
+
+<section style="padding:0 clamp(20px,5vw,64px) var(--space-9);max-width:1140px;margin:0 auto">
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px">
+<sc-for list="{{ filteredStores }}" as="s" hint-placeholder-count="5">
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column">
+<image-slot id="{{ s.photoSlotId }}" shape="rect" placeholder="{{ s.photoHint }}" style="width:100%;height:220px"></image-slot>
+<div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+<div style="font-size:17px;font-weight:var(--fw-bold);color:var(--accent-maroon)">{{ s.name }}</div>
+<div style="font-size:13.5px;color:var(--text-secondary);font-weight:var(--fw-light);line-height:1.5">{{ s.address }}</div>
+<div style="font-size:13.5px;color:var(--text-secondary);font-weight:var(--fw-light)">{{ s.email }}</div>
+<div style="font-size:13.5px;color:var(--text-secondary);font-weight:var(--fw-light)">{{ s.phone }}</div>
+<div style="font-size:12px;color:var(--text-secondary);opacity:0.7;font-weight:var(--fw-light)">Registo n.º 0004632</div>
+<div style="display:flex;gap:10px;margin-top:8px">
+<a href="{{ s.mapHref }}" target="_blank" rel="noopener" style="border:1px solid var(--accent-maroon);color:var(--accent-maroon);font-weight:var(--fw-bold);font-size:13px;padding:9px 16px;border-radius:var(--radius-pill);text-decoration:none">Mapa</a>
+<a href="{{ s.teamHref }}" style="background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:13px;padding:9px 16px;border-radius:var(--radius-pill);text-decoration:none">Ver mais</a>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<footer style="background:var(--maroon-700);color:var(--text-inverse-muted);text-align:center;padding:24px;font-size:12.5px;font-weight:var(--fw-light);border-top:1px solid var(--border-on-dark)">Peculiar Time, Lda. — Intermediário de Crédito Vinculado n.º 0004632, registado no Banco de Portugal.</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 'offices', distrito: '', concelho: '', isMobile: false, mobileMenuOpen: false, scrolled: false };
+  stores = [
+    { name: "RA Intermediários de Crédito Vila Nova de Famalicão", address: "R. Júlio de Araújo 8 R/C, 4760-151 Vila Nova de Famalicão", email: "famalicao@racreditos.pt", phone: "+351 914 110 829", distrito: "Braga", concelho: "Vila Nova de Famalicão", teamHref: "Loja - Famalicão.dc.html", photoSlotId: "loja-famalicao-foto", photoHint: "Foto: fachada/interior da loja de Famalicão" },
+    { name: "RA Intermediários de Crédito Joane", address: "Rua da Ribeira, Nº 25 Loja 3, 4770-207 Joane", email: "carlos.joane@racreditos.pt", phone: "910 458 505 / 252 185 949", distrito: "Braga", concelho: "Vila Nova de Famalicão", teamHref: "#", photoSlotId: "loja-joane-foto", photoHint: "Foto: fachada/interior da loja de Joane" },
+    { name: "RA Intermediários de Crédito Vila das Aves", address: "R. Eng. João Mallen Júnior 95, Vila das Aves", email: "viladasaves@racreditos.pt", phone: "925 766 209", distrito: "Porto", concelho: "Santo Tirso", teamHref: "#", photoSlotId: "loja-viladasaves-foto", photoHint: "Foto: fachada/interior da loja de Vila das Aves" },
+    { name: "RA Intermediários de Crédito Viatodos", address: "Rua Santa Maria de Viatodos n.º 927", email: "carla.moreira@racreditos.pt", phone: "+351 924 483 794", distrito: "Braga", concelho: "Barcelos", teamHref: "#", photoSlotId: "loja-viatodos-foto", photoHint: "Foto: fachada/interior da loja de Viatodos" },
+    { name: "RA Intermediários de Crédito Póvoa de Varzim", address: "Av. Mouzinho Albuquerque, C.C. Premar, n.25, lojas 9 e 12, 4490-409 Póvoa de Varzim", email: "povoadevarzim@racreditos.pt", phone: "939 931 879", distrito: "Porto", concelho: "Póvoa de Varzim", teamHref: "#", photoSlotId: "loja-povoa-foto", photoHint: "Foto: fachada/interior da loja da Póvoa de Varzim" },
+  ].map(s => ({ ...s, mapHref: `https://www.openstreetmap.org/search?query=${encodeURIComponent(s.address)}` }));
+  tabStyle(active) { return `border:none;background:${active ? 'var(--maroon-700)' : 'var(--cream-300)'};color:${active ? 'var(--text-inverse)' : 'var(--text-secondary)'};font-weight:var(--fw-bold);font-size:14px;padding:10px 22px;border-radius:var(--radius-pill);cursor:pointer`; }
+  componentDidMount() {
+    this.checkSize = () => this.setState({ isMobile: window.innerWidth < 900 });
+    this.checkSize();
+    window.addEventListener('resize', this.checkSize);
+    this.onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.checkSize);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+  renderVals() {
+    const filteredStores = this.stores.filter(s => (!this.state.distrito || s.distrito === this.state.distrito) && (!this.state.concelho || s.concelho === this.state.concelho));
+    return {
+      officesTabStyle: this.tabStyle(this.state.tab === 'offices'),
+      associatesTabStyle: this.tabStyle(this.state.tab === 'associates'),
+      setTab: (e) => this.setState({ tab: e.currentTarget.dataset.tab }),
+      distrito: this.state.distrito, concelho: this.state.concelho,
+      onDistritoChange: (e) => this.setState({ distrito: e.target.value }),
+      onConcelhoChange: (e) => this.setState({ concelho: e.target.value }),
+      filteredStores,
+      isMobile: this.state.isMobile,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMenu: () => this.setState({ mobileMenuOpen: false }),
+      headerStyle: `position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,64px);transition:background .25s ease,box-shadow .25s ease;background:var(--maroon-700);box-shadow:${this.state.scrolled ? '0 4px 20px rgba(0,0,0,0.18)' : 'none'}`,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./ds-base.js"></script><script src="./image-slot.js"></script><style>html{scroll-behavior:smooth}a{color:var(--accent-gold)}a:hover{color:var(--gold-300,#C9B27A)}</style></helmet>
+<div style="font-family:var(--font-brand);background:var(--surface-page);color:var(--text-primary);overflow-x:hidden">
+
+<header style="{{ headerStyle }}">
+<a href="https://www.racreditos.pt"><img src="assets/logo/logo-horizontal-dourado.png" style="height:56px;width:153px" alt="RA Intermediários de Crédito"></a>
+<button onClick="{{ goForm }}" style="background:var(--maroon-700);color:var(--text-inverse);font-family:inherit;font-weight:var(--fw-bold);font-size:14px;padding:11px 22px;border-radius:var(--radius-pill);border:1px solid var(--accent-gold);cursor:pointer" style-hover="background:var(--maroon-300)">Pedir contacto</button>
+</header>
+
+<section data-screen-label="01 Entrada" style="position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:130px clamp(20px,5vw,64px) 64px">
+<image-slot id="hero-bg" shape="rect" src="uploads/image-enhancement-ai-1789595370438-1.jpg" placeholder="Foto: consultor(a) e cliente em conversa, luz quente" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,21,22,0.78),rgba(42,21,22,0.9));z-index:5;pointer-events:none"></div>
+<div style="position:relative;z-index:6;max-width:960px;width:100%;text-align:center;color:var(--text-inverse)">
+<div style="display:inline-block;font-size:12.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-gold);font-weight:var(--fw-bold);border:1px solid var(--accent-gold);padding:7px 16px;border-radius:var(--radius-pill)">Parcerias e rede RA</div>
+<h1 style="font-size:clamp(2.1rem,5vw,3.6rem);font-weight:var(--fw-black);line-height:1.08;margin:22px 0 16px;text-wrap:balance">Quantos negócios já perdeste por falta de apoio no crédito?</h1>
+<p style="font-size:clamp(15px,1.6vw,17.5px);line-height:1.6;font-weight:var(--fw-light);max-width:620px;margin:0 auto 34px;color:var(--text-inverse);text-wrap:pretty">Somos especialistas em encontrar soluções de crédito adequadas ao perfil de cada cliente.</p>
+<div style="font-size:14px;font-weight:var(--fw-bold);margin-bottom:14px">Como quer trabalhar com a RA Intermediários de Crédito?</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;text-align:left">
+<button onClick="{{ pickPartner }}" style="{{ partnerCardStyle }}" style-hover="background:var(--accent-gold) !important;color:var(--maroon-700) !important;border-color:var(--accent-gold) !important">
+<span style="font-size:20px;font-weight:var(--fw-black);line-height:1.2">Quero ser Parceiro de Crédito</span>
+<span style="font-size:14px;line-height:1.55;font-weight:var(--fw-light)">Para imobiliárias e outros profissionais que procuram um parceiro de crédito para fechar mais negócios</span>
+</button>
+<button onClick="{{ pickNetwork }}" style="{{ networkCardStyle }}" style-hover="background:var(--accent-gold) !important;color:var(--maroon-700) !important;border-color:var(--accent-gold) !important">
+<span style="font-size:20px;font-weight:var(--fw-black);line-height:1.2">Quero integrar a rede RA Intermediários de Crédito</span>
+<span style="font-size:14px;line-height:1.55;font-weight:var(--fw-light)">Abrir uma agência RA ou trabalhar como gestor de crédito numa agência existente.</span>
+</button>
+</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 36px;margin-top:34px;font-size:14px;font-weight:var(--fw-bold)">
+<div style="display:flex;align-items:center;gap:10px;line-height:1"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-gold);flex:0 0 8px"></span><span><span style="color:var(--accent-gold)">15+</span> anos de experiência</span></div>
+<div style="display:flex;align-items:center;gap:10px;line-height:1"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-gold);flex:0 0 8px"></span><span>De norte a sul do país</span></div>
+<div style="display:flex;align-items:center;gap:10px;line-height:1"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-gold);flex:0 0 8px"></span><span>Vários bancos parceiros</span></div>
+</div>
+</div>
+</section>
+
+<section data-screen-label="02 História" style="padding:var(--space-9) clamp(20px,5vw,64px)">
+<div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:48px;align-items:center">
+<div style="position:relative">
+<image-slot id="ceo-photo" src="assets/lp/ceo-photo.webp" shape="rect" placeholder="Foto profissional de Raquel Silva" style="width:100%;aspect-ratio:4/5;border-radius:var(--radius-lg)"></image-slot>
+<div style="position:absolute;left:-12px;bottom:28px;background:var(--maroon-700);color:var(--text-inverse);padding:16px 22px;border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:3">
+<div style="font-size:34px;font-weight:var(--fw-black);color:var(--accent-gold);line-height:1">15+</div>
+<div style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;font-weight:var(--fw-bold);margin-top:4px">Anos de experiência</div>
+</div>
+</div>
+<div>
+<div style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-gold);font-weight:var(--fw-bold);margin-bottom:12px">A nossa história</div>
+<h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:var(--fw-black);line-height:1.12;margin:0 0 20px;color:var(--accent-maroon)">Acreditamos nos seus sonhos!</h2>
+<p style="font-size:15.5px;line-height:1.7;color:var(--text-secondary);font-weight:var(--fw-light);margin:0 0 14px">A RA Intermediários de Crédito reúne profissionais experientes que acompanham cada processo de crédito com rigor técnico e articulação com instituições financeiras parceiras.</p>
+<p style="font-size:15.5px;line-height:1.7;color:var(--text-secondary);font-weight:var(--fw-light);margin:0 0 14px">Com mais de 15 anos de experiência no setor financeiro, Raquel Silva é a fundadora da RA Intermediários de Crédito. A sua formação em Psicologia alia-se ao rigor técnico exigido pela intermediação de crédito.</p>
+<p style="font-size:15.5px;line-height:1.7;color:var(--text-secondary);font-weight:var(--fw-light);margin:0 0 26px">Acredita que decisões financeiras informadas transformam a vida das pessoas.</p>
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:28px">
+<div style="width:36px;height:2px;background:var(--accent-gold)"></div>
+<div><div style="font-size:15px;font-weight:var(--fw-black);color:var(--accent-maroon)">Raquel Silva</div><div style="font-size:12px;font-weight:var(--fw-bold);color:#B98A8F;letter-spacing:0.04em;text-transform:uppercase">CEO RA Intermediários de Crédito</div></div>
+</div>
+<button onClick="{{ goForm }}" style="background:var(--accent-gold);color:var(--maroon-500);font-family:inherit;font-weight:var(--fw-bold);font-size:15px;padding:13px 28px;border-radius:var(--radius-pill);border:none;cursor:pointer" style-hover="filter:brightness(1.08)">Quero saber mais</button>
+</div>
+</div>
+</section>
+
+<section data-screen-label="03 Serviço RA" style="background:var(--maroon-700);color:var(--text-inverse);padding:var(--space-9) clamp(20px,5vw,64px)">
+<div style="max-width:1080px;margin:0 auto">
+<div style="max-width:720px;margin:0 auto 48px;text-align:center">
+<div style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-gold);font-weight:var(--fw-bold);margin-bottom:12px">O que pode contar connosco</div>
+<h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:var(--fw-black);line-height:1.15;margin:0 0 18px;text-wrap:balance">Porque deve escolher a RA Intermediários de Crédito como intermediário de crédito?</h2>
+<p style="font-size:16px;line-height:1.65;font-weight:var(--fw-light);margin:0;color:var(--text-inverse)">Apoiamos na procura das condições de crédito ajustadas ao perfil de cada cliente, junto dos nossos parceiros bancários.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px">
+<sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+<div style="border:1px solid var(--border-on-dark);border-radius:var(--radius-lg);padding:28px 24px;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;font-weight:var(--fw-black);color:var(--accent-gold)">{{ p.num }}</div>
+<div style="font-size:19px;font-weight:var(--fw-black)">{{ p.title }}</div>
+<div style="font-size:14.5px;line-height:1.6;font-weight:var(--fw-light);color:var(--text-inverse)">{{ p.desc }}</div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:44px;padding-top:36px;border-top:1px solid var(--border-on-dark);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
+<p style="font-size:17px;font-weight:var(--fw-bold);margin:0;max-width:560px;line-height:1.45">Estamos presentes de norte a sul do país, prontos para o ajudar em qualquer região.</p>
+<button onClick="{{ goForm }}" style="background:var(--accent-gold);color:var(--maroon-500);font-family:inherit;font-weight:var(--fw-bold);font-size:15px;padding:13px 28px;border-radius:var(--radius-pill);border:none;cursor:pointer" style-hover="filter:brightness(1.08)">Pedir mais informações</button>
+</div>
+</div>
+</section>
+
+<section data-screen-label="04 Testemunhos" style="background:var(--cream-300);padding:var(--space-9) clamp(20px,5vw,64px)">
+<div style="max-width:1080px;margin:0 auto">
+<div style="text-align:center;margin-bottom:40px">
+<div style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-maroon);font-weight:var(--fw-bold);margin-bottom:12px">Testemunhos</div>
+<h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:var(--fw-black);line-height:1.15;margin:0;color:var(--accent-maroon)">Quem já trabalha connosco</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;max-width:880px;margin:0 auto">
+<sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="2">
+<div style="background:var(--surface-card);border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;gap:20px;box-shadow:var(--shadow-sm)">
+<div style="font-size:44px;line-height:0.6;color:var(--accent-gold);font-weight:var(--fw-black);height:20px">“</div>
+<p style="font-size:15px;line-height:1.65;color:var(--text-secondary);font-weight:var(--fw-light);margin:0;flex:1">{{ t.quote }}</p>
+<div style="display:flex;align-items:center;gap:14px">
+<image-slot id="{{ t.slotId }}" src="{{ t.src }}" shape="circle" placeholder="Foto" style="width:52px;height:52px;flex:0 0 52px"></image-slot>
+<div>
+<div style="font-size:15px;font-weight:var(--fw-black);color:var(--accent-maroon)">{{ t.name }}</div>
+<div style="font-size:12.5px;font-weight:var(--fw-bold);color:#B98A8F;text-transform:uppercase;letter-spacing:0.04em">{{ t.role }}</div>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="formulario" ref="{{ formRef }}" data-screen-label="05 Formulário" style="padding:var(--space-9) clamp(20px,5vw,64px);scroll-margin-top:90px">
+<div style="max-width:620px;margin:0 auto">
+<div style="text-align:center;margin-bottom:32px">
+<h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:var(--fw-black);line-height:1.15;margin:0 0 12px;color:var(--accent-maroon)">Fale connosco</h2>
+<p style="font-size:15.5px;line-height:1.6;color:var(--text-secondary);font-weight:var(--fw-light);margin:0">Deixe os seus dados e entramos em contacto consigo.</p>
+</div>
+<sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="06 Boas-vindas" style="background:var(--maroon-700);color:var(--text-inverse);border-radius:var(--radius-lg);overflow:hidden">
+<div style="padding:clamp(32px,5vw,48px) clamp(22px,5vw,40px) 32px;text-align:center">
+<div style="width:56px;height:56px;border-radius:50%;background:var(--accent-gold);color:var(--maroon-700);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:26px;font-weight:var(--fw-black)">✓</div>
+<div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-gold);font-weight:var(--fw-bold);margin-bottom:10px">{{ welcomeTag }}</div>
+<div style="font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:var(--fw-black);line-height:1.15;margin-bottom:12px">Obrigado, {{ firstName }}!</div>
+<p style="font-size:15.5px;line-height:1.6;font-weight:var(--fw-light);margin:0 auto;max-width:440px">Recebemos o seu pedido. Vamos contactá-lo nas próximas 24–48h úteis.</p>
+</div>
+<div style="padding:0 clamp(22px,5vw,40px) 32px">
+<div style="font-size:13px;font-weight:var(--fw-bold);color:var(--accent-gold);margin-bottom:14px;text-align:center">Próximos passos</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ nextSteps }}" as="st" hint-placeholder-count="3">
+<div style="display:flex;align-items:center;gap:14px;border:1px solid var(--border-on-dark);border-radius:var(--radius-md);padding:14px 16px">
+<div style="width:30px;height:30px;flex:0 0 30px;border-radius:50%;border:1.5px solid var(--accent-gold);color:var(--accent-gold);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:var(--fw-black)">{{ st.n }}</div>
+<div style="font-size:15px;font-weight:var(--fw-bold);line-height:1.35">{{ st.label }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="background:var(--cream-300);color:var(--text-primary);padding:28px clamp(22px,5vw,40px);display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+<image-slot id="ceo-photo" src="assets/lp/ceo-photo.webp" shape="circle" placeholder="Raquel" style="width:72px;height:72px;flex:0 0 72px"></image-slot>
+<div style="flex:1;min-width:220px">
+<p style="font-size:15px;line-height:1.6;font-weight:var(--fw-light);margin:0 0 10px;color:var(--text-secondary)">“Seja bem-vindo(a). Será um gosto conhecê-lo(a) e mostrar-lhe como trabalhamos.”</p>
+<div style="font-size:14px;font-weight:var(--fw-black);color:var(--accent-maroon)">Raquel Silva <span style="font-weight:var(--fw-bold);color:#B98A8F;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;margin-left:6px">CEO RA Intermediários de Crédito</span></div>
+</div>
+</div>
+<div style="padding:26px clamp(22px,5vw,40px);display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+<a href="WebsiteHomepage.dc.html" style="background:var(--accent-gold);color:var(--maroon-700);text-decoration:none;font-weight:var(--fw-bold);font-size:15px;padding:13px 26px;border-radius:var(--radius-pill);min-height:48px;box-sizing:border-box;display:flex;align-items:center" style-hover="filter:brightness(1.08)">Conhecer a RA Intermediários de Crédito</a>
+<a href="tel:+351252000000" style="border:1px solid var(--accent-gold);color:var(--text-inverse);text-decoration:none;font-weight:var(--fw-bold);font-size:15px;padding:13px 26px;border-radius:var(--radius-pill);min-height:48px;box-sizing:border-box;display:flex;align-items:center" style-hover="background:rgba(171,145,80,0.2)">Ligar 252 000 000</a>
+</div>
+<div style="text-align:center;padding:0 24px 24px">
+<button onClick="{{ resetForm }}" style="background:none;border:none;color:var(--text-inverse-muted);font-family:inherit;font-size:13px;text-decoration:underline;cursor:pointer">Enviar outro pedido</button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ submit }}" style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:clamp(22px,4vw,36px);display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-sm)">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="font-size:13px;font-weight:var(--fw-bold);color:var(--accent-maroon)">Tenho interesse em</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ interests }}" as="opt" hint-placeholder-count="3">
+<button type="button" onClick="{{ opt.onPick }}" style="{{ opt.style }}"><span style="{{ opt.dotStyle }}"></span>{{ opt.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px">
+<label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:var(--fw-bold);color:var(--accent-maroon)">Nome<input required="" name="nome" value="{{ nome }}" onChange="{{ setNome }}" autocomplete="name" style="font-family:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);background:var(--surface-page);color:var(--text-primary);outline-color:var(--accent-gold)"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:var(--fw-bold);color:var(--accent-maroon)">Telefone<input required="" type="tel" name="telefone" value="{{ telefone }}" onChange="{{ setTelefone }}" autocomplete="tel" style="font-family:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);background:var(--surface-page);color:var(--text-primary);outline-color:var(--accent-gold)"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:var(--fw-bold);color:var(--accent-maroon)">Email<input required="" type="email" name="email" value="{{ email }}" onChange="{{ setEmail }}" autocomplete="email" style="font-family:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);background:var(--surface-page);color:var(--text-primary);outline-color:var(--accent-gold)"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:var(--fw-bold);color:var(--accent-maroon)">Localidade<input required="" name="localidade" value="{{ localidade }}" onChange="{{ setLocalidade }}" autocomplete="address-level2" style="font-family:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);background:var(--surface-page);color:var(--text-primary);outline-color:var(--accent-gold)"></label>
+</div>
+<label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;color:var(--text-secondary);font-weight:var(--fw-light);cursor:pointer"><input required="" type="checkbox" style="margin-top:3px;accent-color:var(--accent-maroon);width:16px;height:16px;flex:0 0 16px">Autorizo a RA Intermediários de Crédito a contactar-me com base nos dados fornecidos.</label>
+<button type="submit" style="background:var(--accent-gold);color:var(--maroon-500);font-family:inherit;font-weight:var(--fw-black);font-size:16px;padding:16px;border-radius:var(--radius-pill);border:none;cursor:pointer;min-height:52px" style-hover="filter:brightness(1.08)">{{ submitLabel }}</button>
+<sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:var(--accent-maroon);font-weight:var(--fw-bold);text-align:center">{{ sendError }}</div></sc-if>
+</form>
+</sc-if>
+</div>
+</section>
+
+<footer style="background:var(--maroon-700);color:var(--text-inverse-muted);text-align:center;padding:28px 24px 96px;font-size:12.5px;line-height:1.6;font-weight:var(--fw-light);border-top:1px solid var(--border-on-dark)">
+<img src="assets/logo/logo-horizontal-dourado.png" style="height:48px;width:132px;margin-bottom:12px" alt="RA Intermediários de Crédito">
+<p style="max-width:980px;margin:0 auto;font-size:12px;line-height:1.7;text-align:justify;text-wrap:pretty">Peculiar Time, Lda, com o registo n.º 0004632, exerce a atividade de intermediário de crédito na categoria de vinculado, mantendo contratos de vinculado, mantendo contratos de vinculação com os seguintes mutuantes: BANCO BPI S.A., BANCO CTT, S.A., CAIXA GERAL DE DEPÓSITOS, S.A., BANKINTER, S.A. – SUCURSAL EM PORTUGAL, ABANCA CORPORACIÓN BANCARIA, S.A., SUCURSAL EM PORTUGAL, BANCO SANTANDER TOTTA, S.A., NOVO BANCO, S.A., UNION DE CRÉDITOS INMOBILIÁRIOS, S.A., ESTABLECIMIENTO FINANCIERO DE CRÉDITO (SOCIEDAD UNIPERSONAL) – SUCURSAL EM PORTUGAL, SICAM – CAIXA CENTRAL E CAIXAS DE CRÉDITO AGRÍCOLA MÚTUO, BNI – BANCO DE NEGÓCIOS INTERNACIONAL (EUROPA), S.A., BBVA, INSTITUIÇÃO FINANCEIRA DE CRÉDITO S.A., NOVO BANCO DOS AÇORES, S.A.UNICRE - INSTITUIÇÃO FINANCEIRA DE CRÉDITO, S.A. COFIDIS. No âmbito da sua atividade, a Peculiar Time, Lda. realiza os seguintes serviços: Apresentação ou proposta de contratos de crédito a consumidores, assistência a consumidores, mediante a realização de atos preparatórios ou de outros trabalhos de gestão pré-contratual relativamente a contratos de crédito que não tenham sido por si apresentados ou propostos, celebração de contratos de crédito com consumidores em nome dos mutuantes, e prestação de serviços de consultoria.</p>
+</footer>
+
+<sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;left:0;right:0;bottom:0;z-index:90;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:var(--maroon-700);border-top:1px solid var(--border-on-dark);display:flex;gap:10px;align-items:center;justify-content:center">
+<button onClick="{{ goForm }}" style="flex:1;max-width:420px;background:var(--accent-gold);color:var(--maroon-500);font-family:inherit;font-weight:var(--fw-black);font-size:15px;padding:14px;border-radius:var(--radius-pill);border:none;cursor:pointer;min-height:48px">Pedir contacto</button>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;emailDestino&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;daniel.gomes@one.pt&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;defaultAudience&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;nenhuma&quot;,&quot;parceiro&quot;,&quot;rede&quot;],&quot;default&quot;:&quot;nenhuma&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { audience: null, interest: null, scrolled: false, nearForm: false, submitted: false, nome: '', telefone: '', email: '', localidade: '' };
+  formRef = React.createRef();
+  pillars = [
+    { num: '01', title: 'Especialistas', desc: 'Somos especialistas em encontrar soluções de crédito adequadas ao perfil de cada cliente.' },
+    { num: '02', title: 'Vários bancos', desc: 'Negociamos com vários bancos por si.' },
+    { num: '03', title: 'Comparação', desc: 'Comparamos propostas e ajudamos a encontrar a solução de crédito mais adequada.' },
+    { num: '04', title: 'Excelência', desc: 'Na relação com os nossos parceiros e clientes a RA Intermediários de Crédito trabalha com precisão e cumprimento absoluto das normas e com toda atenção' },
+  ];
+  testimonials = [
+    { slotId: 'lp-test-1', src: (window.__resources && window.__resources.lpTest1) || 'assets/lp/lp-test-1.webp', quote: 'Fazer parte da RA Intermediários de Créditos é integrar uma marca jovem e\ndinâmica, constituída por profissionais altamente qualificados, onde o\nespírito de entreajuda, cooperação e partilha de conhecimento faz\nverdadeiramente a diferença.', name: 'Liliana Costa', role: 'Diretora RA Intermediários de Crédito Póvoa de Varzim' },
+    { slotId: 'lp-test-2', src: (window.__resources && window.__resources.lpTest2) || 'assets/lp/lp-test-2.webp', quote: 'Fazer parte da RA Intermediários de Crédito tem sido um percurso de\ncrescimento, aprendizagem e conquistas. Destaco a liderança inspiradora\nda Raquel Silva, cuja visão e determinação impulsionam toda a estrutura.\nOrgulho-me do caminho\nque temos construído, dos resultados alcançados e do reconhecimento\nconquistado. É gratificante contribuir para o crescimento de um projeto no\nqual acredito plenamente.', name: 'Telma Lopes', role: 'Diretora RA Intermediários de Crédito Vila das Aves' },
+  ];
+  interestOpts = [
+    { id: 'parceiro', label: 'Ser Parceiro de Crédito' },
+    { id: 'agencia', label: 'Abrir uma Agência RA / Office' },
+    { id: 'gestor', label: 'Ser um Gestor de Crédito / Associate' },
+  ];
+  componentDidMount() {
+    const d = this.props.defaultAudience;
+    if (d === 'parceiro' || d === 'rede') this.setState({ audience: d, interest: d === 'parceiro' ? 'parceiro' : 'agencia' });
+    this.check = () => {
+      const el = this.formRef.current;
+      const r = el ? el.getBoundingClientRect() : null;
+      this.setState({ scrolled: window.scrollY > 40, nearForm: !!r && r.top < window.innerHeight && r.bottom > 0, isMobile: window.innerWidth < 760, pastHero: window.scrollY > window.innerHeight * 0.6 });
+    };
+    this.check();
+    window.addEventListener('scroll', this.check, { passive: true });
+    window.addEventListener('resize', this.check);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.check);
+    window.removeEventListener('resize', this.check);
+  }
+  goForm = () => {
+    const el = this.formRef.current;
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+  };
+  pick(aud) {
+    this.setState(s => ({ audience: aud, interest: aud === 'parceiro' ? 'parceiro' : (s.interest && s.interest !== 'parceiro' ? s.interest : 'agencia') }));
+    setTimeout(this.goForm, 60);
+  }
+  card(active) {
+    return `display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:var(--radius-lg);cursor:pointer;font-family:inherit;color:var(--text-inverse);text-align:left;transition:background .2s,border-color .2s;border:${active ? '2px solid var(--accent-gold)' : '1px solid rgba(251,247,239,0.35)'};background:${active ? 'rgba(171,145,80,0.22)' : 'rgba(42,21,22,0.55)'};backdrop-filter:blur(4px)`;
+  }
+  renderVals() {
+    const s = this.state;
+    const sticky = (this.props.stickyCta ?? true) && s.isMobile && s.pastHero && !s.nearForm;
+    return {
+      headerStyle: `position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,5vw,64px);transition:background .25s,box-shadow .25s;background:${s.scrolled ? 'var(--maroon-700)' : 'transparent'};box-shadow:${s.scrolled ? '0 4px 20px rgba(0,0,0,0.18)' : 'none'}`,
+      partnerCardStyle: this.card(s.audience === 'parceiro'),
+      networkCardStyle: this.card(s.audience === 'rede'),
+      pickPartner: () => this.pick('parceiro'),
+      pickNetwork: () => this.pick('rede'),
+      goForm: this.goForm,
+      formRef: this.formRef,
+      pillars: this.pillars,
+      testimonials: this.testimonials,
+      interests: this.interestOpts.map(o => {
+        const on = s.interest === o.id;
+        return {
+          label: o.label,
+          onPick: () => this.setState({ interest: o.id, audience: o.id === 'parceiro' ? 'parceiro' : 'rede' }),
+          style: `display:flex;align-items:center;gap:12px;width:100%;text-align:left;font-family:inherit;font-size:15px;font-weight:${on ? 'var(--fw-bold)' : 'var(--fw-regular)'};padding:14px 16px;min-height:48px;border-radius:var(--radius-sm);cursor:pointer;color:var(--text-primary);background:${on ? 'var(--cream-300)' : 'var(--surface-page)'};border:${on ? '2px solid var(--accent-maroon)' : '1px solid var(--border-subtle)'}`,
+          dotStyle: `width:16px;height:16px;flex:0 0 16px;border-radius:50%;box-sizing:border-box;border:${on ? '5px solid var(--accent-maroon)' : '2px solid var(--border-subtle)'};background:var(--white)`,
+        };
+      }),
+      nome: s.nome, telefone: s.telefone, email: s.email, localidade: s.localidade,
+      setNome: e => this.setState({ nome: e.target.value }),
+      setTelefone: e => this.setState({ telefone: e.target.value }),
+      setEmail: e => this.setState({ email: e.target.value }),
+      setLocalidade: e => this.setState({ localidade: e.target.value }),
+      submit: e => {
+        e.preventDefault();
+        if (s.sending) return;
+        const to = (this.props.emailDestino || 'daniel.gomes@one.pt').trim();
+        const label = (this.interestOpts.find(o => o.id === (s.interest || 'parceiro')) || {}).label;
+        if (!to) { this.setState({ sendError: 'Falta configurar o email de destino.' }); return; }
+        this.setState({ sending: true, sendError: null });
+        fetch('https://formsubmit.co/ajax/' + encodeURIComponent(to), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ _subject: 'Novo contacto Landing Page — ' + label, _template: 'table', _captcha: 'false', Interesse: label, Nome: s.nome, Telefone: s.telefone, Email: s.email, Localidade: s.localidade })
+        }).then(r => r.json()).then(j => {
+          if (j && (j.success === true || j.success === 'true')) { this.setState({ submitted: true, sending: false }); setTimeout(this.goForm, 50); }
+          else {
+            const msg = (j && j.message) || '';
+            console.warn('FormSubmit:', msg);
+            const act = /activat/i.test(msg);
+            const srv = /web server|file/i.test(msg);
+            this.setState({ sending: false, sendError: act ? 'Formulário a aguardar ativação: confirme o link enviado para ' + to + ' e volte a enviar.' : srv ? 'O formulário só envia quando a página está publicada num site (não funciona em pré-visualização).' : 'Não foi possível enviar. ' + (msg || 'Tente novamente.') });
+          }
+        }).catch(() => this.setState({ sending: false, sendError: 'Não foi possível enviar. Verifique a ligação e tente novamente.' }));
+      },
+      submitLabel: s.sending ? 'A enviar…' : 'Quero ser contactado',
+      sendError: s.sendError || '',
+      hasError: !!s.sendError,
+      resetForm: () => this.setState({ submitted: false, nome: '', telefone: '', email: '', localidade: '' }),
+      previewWelcome: () => this.setState({ submitted: true, nome: s.nome || 'Ana' }),
+      submitted: s.submitted,
+      welcomeTag: s.interest === 'parceiro' ? 'Parceiro de Crédito' : s.interest === 'gestor' ? 'Gestor de Crédito' : 'Rede RA',
+      nextSteps: (s.interest === 'parceiro'
+        ? ['Contacto da nossa equipa', 'Reunião de apresentação', 'Acordo de parceria']
+        : ['Contacto da nossa equipa', 'Apresentação do modelo RA', 'Visita a uma agência']).map((label, i) => ({ n: i + 1, label })),
+      showForm: !s.submitted,
+      firstName: (s.nome || '').trim().split(' ')[0],
+      showSticky: sticky,
+    };
+  }
+}
+</script>
+</body>
+</html>

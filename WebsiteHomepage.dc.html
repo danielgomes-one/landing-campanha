@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Website Homepage" description="racreditos.pt redesign: one.pt structural patterns adapted to bordô/dourado — full-bleed hero tool, scroll-fill process, footer CTA block" -->
+<helmet><script src="./ds-base.js"></script><script src="./image-slot.js"></script></helmet>
+<div style="font-family:var(--font-brand);background:var(--surface-page);color:var(--text-primary);overflow-x:hidden">
+
+<div style="position:fixed;top:0;left:0;right:0;height:120px;z-index:99;background:linear-gradient(180deg,rgba(26,13,13,0.65),rgba(26,13,13,0));pointer-events:none"></div>
+<header style="{{ headerStyle }}">
+<img src="assets/logo/logo-horizontal-dourado.png" style="height: 65px; width: 178px" alt="RA Créditos">
+<sc-if value="{{ !isMobile }}" hint-placeholder-val="{{ true }}">
+<nav style="display:flex;align-items:center;gap:34px">
+<a href="Serviços.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Serviços</a>
+<a href="Sobre Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Junte-se a Nós</a>
+<a href="#contacto" style="background:var(--maroon-700);color:var(--text-inverse);font-weight:var(--fw-bold);font-size:14px;padding:11px 24px;border-radius:var(--radius-pill);text-decoration:none;border:1px solid var(--accent-gold)" style-hover="background:var(--maroon-300)">Fale Connosco</a>
+</nav>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ toggleMenu }}" aria-label="Abrir menu" style="background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px">
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+</button>
+</sc-if>
+</header>
+
+<sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:200;background:var(--maroon-700);display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,5vw,64px);background:var(--maroon-700)">
+<img src="assets/logo/logo-horizontal-branco.svg" style="height:26px">
+<button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background:none;border:none;color:var(--text-inverse);font-size:26px;cursor:pointer;line-height:1">×</button>
+</div>
+<nav style="display:flex;flex-direction:column;padding:8px clamp(20px,5vw,64px)">
+<div style="border-bottom:1px solid var(--border-on-dark)">
+<button onClick="{{ toggleMobileServices }}" style="width:100%;background:none;border:none;color:var(--text-inverse);display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-size:17px;font-weight:var(--fw-bold);cursor:pointer">Serviços<span>{{ servicesChevron }}</span></button>
+<sc-if value="{{ mobileServicesOpen }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:14px;padding:0 0 18px 14px">
+<a href="#credito-habitacao" onClick="{{ closeMenu }}" style="color:var(--text-inverse-muted);font-size:15px">Crédito Habitação</a>
+<a href="Transferência de Crédito.dc.html" onClick="{{ closeMenu }}" style="color:var(--text-inverse-muted);font-size:15px">Transferência de Crédito</a>
+<a href="#autoconstrucao" onClick="{{ closeMenu }}" style="color:var(--text-inverse-muted);font-size:15px">Crédito de Autoconstrução</a>
+<a href="#credito-automovel" onClick="{{ closeMenu }}" style="color:var(--text-inverse-muted);font-size:15px">Crédito Automóvel</a>
+<a href="#credito-pessoal" onClick="{{ closeMenu }}" style="color:var(--text-inverse-muted);font-size:15px">Crédito Pessoal</a>
+<a href="Como Funciona.dc.html" style="color:var(--text-inverse-muted);font-size:15px">Como Funciona</a>
+</div>
+</sc-if>
+</div>
+<a href="Sobre Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Junte-se a Nós</a>
+<a href="#contacto" onClick="{{ closeMenu }}" style="margin-top:24px;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:14px;border-radius:var(--radius-pill);text-decoration:none;text-align:center">Fale Connosco</a>
+</nav>
+</div>
+</sc-if>
+
+<section style="position:relative;height:calc(100vh - 76px);min-height:484px;display:flex;align-items:flex-end;justify-content:center">
+<image-slot id="hero-bg" shape="rect" src="uploads/image-enhancement-ai-1789595370438-1.jpg" placeholder="Foto: consultor(a) e cliente em conversa, luz quente" style="position:absolute;inset:0;width:100%;height:100%;z-index:0"></image-slot>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,21,22,0.72),rgba(42,21,22,0.85));z-index:5;pointer-events:none"></div>
+<div style="position:relative;z-index:6;max-width:900px;padding:0 20px 8vh;text-align:center;color:var(--text-inverse)">
+<h1 style="font-size:clamp(2.25rem,4.5vw,3.5rem);font-weight:var(--fw-black);line-height:1.08;margin:0 0 14px">Os seus sonhos começam aqui.</h1>
+<p style="font-size:clamp(1rem,1.4vw,1.15rem);color:var(--text-inverse-muted);font-weight:var(--fw-light);margin:0 0 32px;max-width:560px;margin-left:auto;margin-right:auto">Somos especialistas em encontrar soluções de crédito adequadas ao perfil de cada cliente.</p>
+<div style="background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;text-align:left">
+<div style="flex:1;min-width:180px;display:flex;flex-direction:column;gap:4px">
+<label style="font-size:11px;color:var(--text-secondary);font-weight:var(--fw-bold);text-transform:uppercase;letter-spacing:0.04em">Tipo de crédito</label>
+<select style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:11px 12px;font-size:14px;font-family:var(--font-brand);color:var(--text-primary);background:var(--cream-100)">
+<option>Crédito Habitação</option><option>Transferência de Crédito</option><option>Crédito Automóvel</option><option>Crédito Pessoal</option>
+</select>
+</div>
+<div style="flex:1;min-width:180px;display:flex;flex-direction:column;gap:4px">
+<label style="font-size:11px;color:var(--text-secondary);font-weight:var(--fw-bold);text-transform:uppercase;letter-spacing:0.04em">Valor pretendido</label>
+<input placeholder="€ 150 000" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:11px 12px;font-size:14px;font-family:var(--font-brand);color:var(--text-primary);background:var(--cream-100)">
+</div>
+<button onClick="{{ openSimulator }}" style="background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:13px 26px;border-radius:var(--radius-pill);border:none;cursor:pointer;white-space:nowrap;align-self:flex-end;font-family:var(--font-brand)">Simular Agora</button>
+</div>
+</div>
+</section>
+
+<sc-if value="{{ simOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:500;background:rgba(20,10,10,0.62);display:flex;align-items:center;justify-content:center;padding:20px" onClick="{{ closeSimulator }}">
+<div style="background:var(--maroon-700);border-radius:var(--radius-lg);max-width:480px;width:100%;max-height:88vh;overflow-y:auto;padding:32px;position:relative" onClick="{{ stopPropagation }}">
+<button onClick="{{ closeSimulator }}" aria-label="Fechar" style="position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-inverse);font-size:24px;cursor:pointer;line-height:1">×</button>
+<h2 style="color:var(--text-inverse);font-size:20px;font-weight:var(--fw-black);margin:0 0 24px">Simule o seu crédito</h2>
+
+<sc-if value="{{ simShowForm }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div>
+<label style="color:var(--text-inverse);font-weight:var(--fw-bold);font-size:15px;display:block;margin-bottom:8px">Valor a financiar *</label>
+<div style="display:flex;align-items:center;gap:10px;background:var(--cream-100);border-radius:var(--radius-sm);padding:14px 16px">
+<span style="color:var(--accent-maroon);font-weight:var(--fw-bold);font-size:16px">€</span>
+<input type="number" placeholder="Exemplo: 100.000" value="{{ simValor }}" onChange="{{ onSimValorChange }}" style="border:none;outline:none;background:transparent;flex:1;font-size:15px;font-family:var(--font-brand);color:var(--text-primary);width:100%">
+</div>
+</div>
+<div>
+<label style="color:var(--text-inverse);font-weight:var(--fw-bold);font-size:15px;display:block;margin-bottom:8px">Prazo *</label>
+<div style="display:flex;align-items:center;gap:10px;background:var(--cream-100);border-radius:var(--radius-sm);padding:14px 16px">
+<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent-maroon)" stroke-width="2" style="flex-shrink:0"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+<input type="number" placeholder="Exemplo: 360" value="{{ simPrazo }}" onChange="{{ onSimPrazoChange }}" style="border:none;outline:none;background:transparent;flex:1;font-size:15px;font-family:var(--font-brand);color:var(--text-primary);width:100%">
+</div>
+</div>
+<div>
+<label style="color:var(--text-inverse);font-weight:var(--fw-bold);font-size:15px;display:block;margin-bottom:8px">Taxa Total (TAN) *</label>
+<div style="display:flex;align-items:center;gap:10px;background:var(--cream-100);border-radius:var(--radius-sm);padding:14px 16px">
+<span style="color:var(--accent-maroon);font-weight:var(--fw-bold);font-size:16px">%</span>
+<input type="number" placeholder="Exemplo: 1,5" value="{{ simTaxa }}" onChange="{{ onSimTaxaChange }}" style="border:none;outline:none;background:transparent;flex:1;font-size:15px;font-family:var(--font-brand);color:var(--text-primary);width:100%">
+</div>
+</div>
+<button onClick="{{ calcSimulation }}" style="width:100%;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:15px;border-radius:var(--radius-sm);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-brand)">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--maroon-500)" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M16 15h0"></path></svg>
+Fazer Simulação</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ simShowResults }}" hint-placeholder-val="{{ false }}">
+<div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+<div><div style="color:var(--text-inverse);font-weight:var(--fw-bold);font-size:14px;margin-bottom:8px">Mensalidade</div><div style="background:var(--white);border-radius:var(--radius-sm);padding:14px 16px;color:var(--accent-maroon);font-weight:var(--fw-black);font-size:19px">{{ simMensalidadeFmt }}</div></div>
+<div><div style="color:var(--text-inverse);font-weight:var(--fw-bold);font-size:14px;margin-bottom:8px">Juros Total:</div><div style="background:var(--white);border-radius:var(--radius-sm);padding:14px 16px;color:var(--accent-maroon);font-weight:var(--fw-black);font-size:19px">{{ simJurosFmt }}</div></div>
+</div>
+<div style="margin-bottom:24px"><div style="color:var(--text-inverse);font-weight:var(--fw-bold);font-size:14px;margin-bottom:8px">Valor Total:</div><div style="background:var(--white);border-radius:var(--radius-sm);padding:14px 16px;color:var(--accent-maroon);font-weight:var(--fw-black);font-size:19px">{{ simTotalFmt }}</div></div>
+<div style="color:var(--text-inverse);font-weight:var(--fw-black);font-size:16px;margin-bottom:16px">Fale com um gestor:</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+<div style="display:flex;align-items:center;gap:10px;background:var(--cream-100);border-radius:var(--radius-sm);padding:14px 16px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-maroon)" stroke-width="2"><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6M12 12a4 4 0 100-8 4 4 0 000 8z"></path></svg>
+<input placeholder="Nome *" value="{{ contactNome }}" onChange="{{ onContactNomeChange }}" style="border:none;outline:none;background:transparent;flex:1;font-size:14px;font-family:var(--font-brand);color:var(--text-primary);width:100%">
+</div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--cream-100);border-radius:var(--radius-sm);padding:14px 16px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-maroon)" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"></path></svg>
+<input placeholder="Telemóvel *" value="{{ contactTelefone }}" onChange="{{ onContactTelefoneChange }}" style="border:none;outline:none;background:transparent;flex:1;font-size:14px;font-family:var(--font-brand);color:var(--text-primary);width:100%">
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--cream-100);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:20px">
+<span style="color:var(--accent-maroon);font-weight:var(--fw-bold);font-size:15px">@</span>
+<input placeholder="Email (opcional)" value="{{ contactEmail }}" onChange="{{ onContactEmailChange }}" style="border:none;outline:none;background:transparent;flex:1;font-size:14px;font-family:var(--font-brand);color:var(--text-primary);width:100%">
+</div>
+<button onClick="{{ submitContact }}" style="width:100%;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-black);font-size:14.5px;letter-spacing:0.03em;text-transform:uppercase;padding:15px;border-radius:var(--radius-sm);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-brand)">
+<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--maroon-500)" stroke-width="2"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4z"></path></svg>
+Conquiste o que é seu!</button>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<section style="padding:var(--space-9) clamp(20px,5vw,64px);max-width:1140px;margin:0 auto">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+<div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:16/11">
+<image-slot id="path-comprar" shape="rect" placeholder="Foto: casal a receber as chaves de casa" style="position:absolute;inset:0"></image-slot>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(63,32,33,0) 40%,rgba(42,21,22,0.85));pointer-events:none;z-index:1"></div>
+<a href="#credito-habitacao" style="position:absolute;left:28px;right:28px;bottom:24px;color:var(--text-inverse);text-decoration:none;z-index:2">
+<div style="font-size:20px;font-weight:var(--fw-black)">Quero comprar casa</div>
+<div style="font-size:14px;color:var(--text-inverse-muted);font-weight:var(--fw-light);margin-top:4px">Simule o seu crédito habitação em minutos</div>
+</a>
+</div>
+<div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:16/11">
+<image-slot id="path-transferir" shape="rect" src="uploads/Gemini_Generated_Image_hbbizghbbizghbbi.jpg" placeholder="Foto: cliente a assinar documentos com consultor" style="position:absolute;inset:0"></image-slot>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(63,32,33,0) 40%,rgba(42,21,22,0.85));pointer-events:none;z-index:1"></div>
+<a href="Transferência de Crédito.dc.html" style="position:absolute;left:28px;right:28px;bottom:24px;color:var(--text-inverse);text-decoration:none;z-index:2">
+<div style="font-size:20px;font-weight:var(--fw-black)">Quero mudar de crédito</div>
+<div style="font-size:14px;color:var(--text-inverse-muted);font-weight:var(--fw-light);margin-top:4px">Melhores condições, sem perder o que já tem</div>
+</a>
+</div>
+</div>
+</section>
+
+<section id="servicos" style="background:var(--maroon-500);padding:var(--space-9) clamp(20px,5vw,64px)"><div style="max-width:1140px;margin:0 auto">
+<div style="text-align:center;max-width:600px;margin:0 auto var(--space-8)">
+<div style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-gold);font-weight:var(--fw-bold);margin-bottom:14px">Serviços</div>
+<h2 style="font-size:clamp(1.75rem,3vw,2.5rem);font-weight:var(--fw-black);line-height:1.15;margin:0;color:var(--text-inverse)">Soluções de crédito para cada fase da sua vida</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px">
+<sc-for list="{{ services }}" as="item" hint-placeholder-count="5">
+<a href="{{ item.linkHref }}" style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;display:flex;flex-direction:column">
+<div style="position:relative;aspect-ratio:4/3">
+<image-slot id="{{ item.slotId }}" shape="rect" placeholder="{{ item.photoHint }}" style="position:absolute;inset:0"></image-slot>
+<sc-if value="{{ item.badge }}" hint-placeholder-val="{{ false }}">
+<span style="position:absolute;top:12px;left:12px;background:var(--maroon-700);color:var(--accent-gold);font-size:11px;font-weight:var(--fw-bold);letter-spacing:0.03em;padding:5px 11px;border-radius:var(--radius-pill)">{{ item.badge }}</span>
+</sc-if>
+</div>
+<div style="padding:22px;display:flex;flex-direction:column;gap:12px;flex:1">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#AB9150" stroke-width="1.6"><path d="{{ item.iconPath }}"></path></svg>
+<div style="font-size:16px;font-weight:var(--fw-bold);color:var(--text-primary)">{{ item.title }}</div>
+<div style="font-size:13.5px;line-height:1.5;color:var(--text-secondary);font-weight:var(--fw-light);flex:1">{{ item.desc }}</div>
+<div style="border-top:1px solid var(--border-subtle);padding-top:12px;font-size:13px;font-weight:var(--fw-bold);color:var(--accent-maroon)">Ver mais →</div>
+</div>
+</a>
+</sc-for>
+</div>
+<div style="text-align:center;margin-top:var(--space-7)">
+<a href="Como Funciona.dc.html" style="font-size:14px;font-weight:var(--fw-bold);color:var(--accent-gold);text-decoration:none;border-bottom:1px solid var(--accent-gold);padding-bottom:2px">Ver como funciona o processo →</a>
+</div>
+</div>
+</section>
+
+<section id="onde-estamos" style="padding:var(--space-9) clamp(20px,5vw,64px);max-width:1140px;margin:0 auto">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center">
+<svg viewBox="0 0 460 680" style="width:100%;max-width:380px;height:auto;display:block;margin:0 auto">
+<sc-for list="{{ districtPaths }}" as="d" hint-placeholder-count="18">
+<path d="{{ d }}" fill="none" stroke="var(--accent-gold)" stroke-width="1"></path>
+</sc-for>
+<sc-for list="{{ pinPoints }}" as="p" hint-placeholder-count="7">
+<g transform="{{ p.transformStr }}">
+<path d="M0 -16 C6 -16 10 -12 10 -6.5 C10 -1 5 4 0 9 C-5 4 -10 -1 -10 -6.5 C-10 -12 -6 -16 0 -16 Z" fill="var(--accent-gold)" stroke="var(--maroon-700)" stroke-width="0.75"></path>
+<circle cy="-6.5" r="3.4" fill="var(--maroon-700)"></circle>
+</g>
+</sc-for>
+</svg>
+<div>
+<div style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-maroon);font-weight:var(--fw-bold);margin-bottom:14px">Onde Estamos</div>
+<h2 style="font-size:clamp(1.75rem,3vw,2.5rem);font-weight:var(--fw-black);line-height:1.15;margin:0 0 16px;color:var(--text-primary)">Presentes de norte a sul de Portugal</h2>
+<p style="font-size:15px;line-height:1.6;color:var(--text-secondary);font-weight:var(--fw-light);margin:0 0 28px;max-width:420px">Com agências distribuídas pelo país, temos sempre um consultor próximo de si, pronto para acompanhar o seu processo de crédito do início ao fim.</p>
+<a href="Onde Estamos.dc.html" style="background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:13px 26px;border-radius:var(--radius-pill);text-decoration:none;display:inline-block">Encontrar uma agência</a>
+</div>
+</div>
+</section>
+
+<section id="sobre" ref="{{ aboutRef }}" style="background:var(--maroon-700);padding:var(--space-9) clamp(20px,5vw,64px)">
+<div style="max-width:1140px;margin:0 auto">
+<div style="text-align:center;max-width:600px;margin:0 auto var(--space-8)">
+<div style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-gold);font-weight:var(--fw-bold);margin-bottom:14px">Quem somos</div>
+<h2 style="font-size:clamp(1.75rem,3vw,2.5rem);font-weight:var(--fw-black);line-height:1.15;margin:0;color:var(--text-inverse)">A equipa por detrás de cada crédito aprovado</h2>
+</div>
+<div style="position:relative;height:380px">
+<div style="position:absolute;left:50%;top:50%;background:var(--white);padding:14px 14px 42px;box-shadow:0 18px 34px rgba(0,0,0,0.45);width:220px;transition:transform .1s linear;transform:{{ aboutPhoto1Transform }}">
+<image-slot id="team-1" shape="rect" placeholder="Raquel Silva" style="width:100%;aspect-ratio:1/1"></image-slot>
+<div style="text-align:center;font-size:13px;color:var(--text-secondary);margin-top:14px;font-family:var(--font-brand);font-weight:var(--fw-light)">Raquel Silva</div>
+</div>
+<div style="position:absolute;left:50%;top:50%;background:var(--white);padding:14px 14px 42px;box-shadow:0 18px 34px rgba(0,0,0,0.45);width:220px;transition:transform .1s linear;transform:{{ aboutPhoto2Transform }}">
+<image-slot id="team-2" shape="rect" placeholder="A equipa no escritório" style="width:100%;aspect-ratio:1/1"></image-slot>
+<div style="text-align:center;font-size:13px;color:var(--text-secondary);margin-top:14px;font-family:var(--font-brand);font-weight:var(--fw-light)">A equipa RA</div>
+</div>
+<div style="position:absolute;left:50%;top:50%;background:var(--white);padding:14px 14px 42px;box-shadow:0 18px 34px rgba(0,0,0,0.45);width:220px;transition:transform .1s linear;transform:{{ aboutPhoto3Transform }}">
+<image-slot id="team-3" shape="rect" placeholder="Entrega de chaves a um cliente" style="width:100%;aspect-ratio:1/1"></image-slot>
+<div style="text-align:center;font-size:13px;color:var(--text-secondary);margin-top:14px;font-family:var(--font-brand);font-weight:var(--fw-light)">Mais um sonho realizado</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:var(--cream-300);padding:var(--space-9) clamp(20px,5vw,64px)">
+<div style="max-width:1140px;margin:0 auto;text-align:center">
+<div style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-maroon);font-weight:var(--fw-bold);margin-bottom:32px">Testemunhos</div>
+<div ref="{{ testimonialTrackRef }}" style="display:flex;gap:24px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:8px;text-align:left">
+<sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+<div style="position:relative;flex:0 0 260px;aspect-ratio:9/16;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)">
+<image-slot id="{{ t.slotId }}" shape="rect" placeholder="{{ t.videoHint }}" style="position:absolute;inset:0"></image-slot>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(63,32,33,0) 45%,rgba(42,21,22,0.88))"></div>
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(251,247,239,0.35);display:flex;align-items:center;justify-content:center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="var(--white)"><path d="M8 5v14l11-7z"></path></svg>
+</div>
+<div style="position:absolute;left:16px;bottom:16px;right:16px;color:var(--text-inverse)">
+<div style="font-weight:var(--fw-bold);font-size:15px">{{ t.name }}</div>
+<div style="font-weight:var(--fw-regular);font-size:13px;color:var(--text-inverse-muted)">{{ t.role }}</div>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;justify-content:center;gap:16px;margin-top:24px">
+<button onClick="{{ prevTestimonial }}" aria-label="Anterior" style="width:40px;height:40px;border-radius:50%;border:1px solid var(--border-subtle);background:var(--white);cursor:pointer;font-size:16px;color:var(--text-primary)">‹</button>
+<button onClick="{{ nextTestimonial }}" aria-label="Seguinte" style="width:40px;height:40px;border-radius:50%;border:1px solid var(--border-subtle);background:var(--white);cursor:pointer;font-size:16px;color:var(--text-primary)">›</button>
+</div>
+</div>
+</section>
+
+<section style="padding:var(--space-8) clamp(20px,5vw,64px);max-width:1140px;margin:0 auto;text-align:center">
+<div style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);font-weight:var(--fw-bold);margin-bottom:32px">Trabalhamos com os principais bancos e financeiras</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px 28px">
+<sc-for list="{{ partnerBanks }}" as="bank" hint-placeholder-count="13">
+<image-slot id="{{ bank.slotId }}" shape="rect" placeholder="{{ bank.name }}" style="width:110px;height:44px;opacity:0.85"></image-slot>
+</sc-for>
+</div>
+<div style="font-size:12px;color:var(--text-secondary);opacity:0.6;font-weight:var(--fw-light);margin-top:16px">Clique em cada espaço para carregar o logótipo oficial do parceiro.</div>
+</section>
+
+<footer id="contacto" style="background:var(--maroon-700);color:var(--text-inverse);padding-top:var(--space-8)">
+<div style="max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:40px">
+<div>
+<div style="font-weight:var(--fw-bold);font-size:13px;margin-bottom:18px;color:var(--accent-gold);text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid var(--accent-gold);display:inline-block;padding-bottom:6px">RA Créditos</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-inverse-muted);font-weight:var(--fw-light);margin-top:10px">
+<span>252 000 000</span><span>geral@racreditos.pt</span><span>Vila Nova de Famalicão</span>
+</div>
+</div>
+<div>
+<div style="font-weight:var(--fw-bold);font-size:13px;margin-bottom:18px;color:var(--accent-gold);text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid var(--accent-gold);display:inline-block;padding-bottom:6px">Navegação</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-inverse-muted);font-weight:var(--fw-light);margin-top:10px">
+<a href="Serviços.dc.html" style="color:inherit">Serviços</a><a href="Sobre Nós.dc.html" style="color:inherit">Sobre Nós</a><a href="Onde Estamos.dc.html" style="color:inherit">Onde Estamos</a><a href="Junte-se a Nós.dc.html" style="color:inherit">Junte-se a Nós</a>
+</div>
+</div>
+<div>
+<div style="font-weight:var(--fw-bold);font-size:13px;margin-bottom:18px;color:var(--accent-gold);text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid var(--accent-gold);display:inline-block;padding-bottom:6px">Legal</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-inverse-muted);font-weight:var(--fw-light);margin-top:10px">
+<a href="#privacidade" style="color:inherit">Política de Privacidade</a><a href="https://livroreclamacoes.pt" style="color:inherit">Livro de Reclamações</a><a href="#denuncias" style="color:inherit">Canal de Denúncias</a>
+</div>
+</div>
+<div style="background:var(--maroon-700);border-radius:var(--radius-lg);padding:28px">
+<div style="font-size:18px;font-weight:var(--fw-black);margin-bottom:8px">Fala com um especialista</div>
+<div style="font-size:13.5px;color:var(--text-inverse-muted);font-weight:var(--fw-light);margin-bottom:18px">Pede a tua simulação gratuita hoje.</div>
+<a href="#simular" style="background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:14px;padding:12px 20px;border-radius:var(--radius-pill);text-decoration:none;display:inline-block">Pedir Simulação</a>
+</div>
+</div>
+<div style="max-width:1140px;margin:var(--space-7) auto 0;padding:0 clamp(20px,5vw,64px)">
+<p style="font-size:12px;line-height:1.7;color:var(--text-inverse-muted);font-weight:var(--fw-light);border-top:1px solid var(--border-on-dark);padding-top:20px;margin:0">Peculiar Time, Lda, com o registo n.º 0004632, exerce a atividade de intermediário de crédito na categoria de vinculado, mantendo contratos de vinculado, mantendo contratos de vinculação com os seguintes mutuantes: BANCO BPI S.A., BANCO CTT, S.A., CAIXA GERAL DE DEPÓSITOS, S.A., BANKINTER, S.A. – SUCURSAL EM PORTUGAL, BANCO BIC PORTUGUÊS, SA, ABANCA CORPORACIÓN BANCARIA, S.A., SUCURSAL EM PORTUGAL, BANCO SANTANDER TOTTA, S.A., NOVO BANCO, S.A., UNION DE CRÉDITOS INMOBILIÁRIOS, S.A., ESTABLECIMIENTO FINANCIERO DE CRÉDITO (SOCIEDAD UNIPERSONAL) – SUCURSAL EM PORTUGAL, SICAM – CAIXA CENTRAL E CAIXAS DE CRÉDITO AGRÍCOLA MÚTUO, BNI – BANCO DE NEGÓCIOS INTERNACIONAL (EUROPA), S.A., BBVA, INSTITUIÇÃO FINANCEIRA DE CRÉDITO S.A., NOVO BANCO DOS AÇORES, S.A.. No âmbito da sua atividade, a Peculiar Time, Lda. realiza os seguintes serviços: Apresentação ou proposta de contratos de crédito a consumidores, assistência a consumidores, mediante a realização de atos preparatórios ou de outros trabalhos de gestão pré-contratual relativamente a contratos de crédito que não tenham sido por si apresentados ou propostos, celebração de contratos de crédito com consumidores em nome dos mutuantes, e prestação de serviços de consultoria.</p>
+</div>
+<div style="max-width:1140px;margin:20px auto 0;padding:20px clamp(20px,5vw,64px);border-top:1px solid var(--border-on-dark);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+<div style="display:flex;gap:12px">
+<image-slot id="social-instagram" shape="circle" placeholder="Logo Instagram" style="width:34px;height:34px"></image-slot>
+<image-slot id="social-facebook" shape="circle" placeholder="Logo Facebook" style="width:34px;height:34px"></image-slot>
+</div>
+<div style="font-size:12.5px;color:var(--text-inverse-muted);font-weight:var(--fw-light)">© Copyright 2026 - RA Créditos - Todos os direitos reservados.</div>
+</div>
+</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false, mobileMenuOpen: false, mobileServicesOpen: false, scrolled: false, activeStep: 0, districtPaths: [], pinPoints: [], aboutProgress: 0, simOpen: false, simStep: 'form', simValor: '', simPrazo: '', simTaxa: '', simResults: null, contactNome: '', contactTelefone: '', contactEmail: '' };
+  fmtEuro(n) { return n.toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'; }
+  aboutRef = React.createRef();
+  stepRefs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
+  testimonialTrackRef = React.createRef();
+  testimonials = [
+    { name: "Carla M.", role: "Cliente — crédito habitação, Famalicão", slotId: "testimonial-1", videoHint: "Vídeo: depoimento de Carla M." },
+    { name: "João e Rita P.", role: "Clientes — transferência de crédito, Braga", slotId: "testimonial-2", videoHint: "Vídeo: depoimento de João e Rita P." },
+    { name: "Nuno F.", role: "Cliente — crédito habitação, Braga", slotId: "testimonial-3", videoHint: "Vídeo: depoimento de Nuno F." },
+  ];
+  partnerBanks = ["BPI", "CGD", "Novo Banco", "Santander Totta", "Bankinter", "UCI", "Banco CTT", "EuroBic", "Crédito Agrícola", "BNI", "BBVA", "Novo Banco Açores", "UNICRE"].map((name, i) => ({ name, slotId: `partner-${i}` }));
+  agencies = [
+    { name: "Viana do Castelo", lat: 41.6932, lon: -8.8329 },
+    { name: "Braga", lat: 41.5454, lon: -8.4265 },
+    { name: "Vila Nova de Famalicão", lat: 41.4084, lon: -8.5211 },
+    { name: "Porto", lat: 41.1579, lon: -8.6291 },
+    { name: "Coimbra", lat: 40.2033, lon: -8.4103 },
+    { name: "Lisboa", lat: 38.7223, lon: -9.1393 },
+    { name: "Faro", lat: 37.0194, lon: -7.9304 },
+  ];
+  services = [
+    { title: "Crédito Habitação", href: "#credito-habitacao", linkHref: "#credito-habitacao", desc: "A nossa área principal — acompanhamos do orçamento à escritura.", badge: "Mais Popular", slotId: "svc-1", photoHint: "Foto: casa/família", iconPath: "M3 11.5 12 4l9 7.5M5.5 10v9.5h13V10M10 19.5v-6h4v6" },
+    { title: "Transferência de Crédito", href: "#transferencia-credito", linkHref: "Transferência de Crédito.dc.html", desc: "Melhores condições, mantendo o que já construiu.", badge: "", slotId: "svc-2", photoHint: "Foto: assinatura de contrato", iconPath: "M4 8h13m0 0-3.5-3.5M17 8l-3.5 3.5M20 16H7m0 0 3.5-3.5M7 16l3.5 3.5" },
+    { title: "Crédito de Autoconstrução", href: "#autoconstrucao", linkHref: "#autoconstrucao", desc: "Financiamento faseado para construir a sua casa.", badge: "", slotId: "svc-3", photoHint: "Foto: construção/obra", iconPath: "M4 20h16M6 20V9l6-4 6 4v11M10 20v-5h4v5" },
+    { title: "Crédito Automóvel", href: "#credito-automovel", linkHref: "#credito-automovel", desc: "Soluções ágeis para comprar o seu próximo carro.", badge: "", slotId: "svc-4", photoHint: "Foto: entrega de carro", iconPath: "M4 16V12l2-5h12l2 5v4M4 16h16v3H4z" },
+    { title: "Crédito Pessoal", href: "#credito-pessoal", linkHref: "#credito-pessoal", desc: "Para projetos e imprevistos, sem complicações.", badge: "", slotId: "svc-5", photoHint: "Foto: momento pessoal", iconPath: "M3.5 6h17v12h-17zM3.5 10h17" },
+  ];
+  componentDidMount() {
+    this.checkSize = () => this.setState({ isMobile: window.innerWidth < 900 });
+    this.checkSize();
+    window.addEventListener('resize', this.checkSize);
+    this.onScroll = () => {
+      this.setState({ scrolled: window.scrollY > 40 });
+      if (this.aboutRef.current) {
+        const rect = this.aboutRef.current.getBoundingClientRect();
+        const progress = Math.min(1, Math.max(0, 1 - rect.top / window.innerHeight));
+        this.setState({ aboutProgress: progress });
+      }
+    };
+    window.addEventListener('scroll', this.onScroll);
+    this.onScroll();
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Number(e.target.dataset.step);
+          this.setState(s => ({ activeStep: Math.max(s.activeStep, idx + 1) }));
+        }
+      });
+    }, { threshold: 0.6 });
+    this.stepRefs.forEach(r => { if (r.current) this.observer.observe(r.current); });
+    this.loadMap();
+  }
+  loadMap() {
+    const W = 460, H = 680, PAD = 20;
+    const project = (lon, lat, minLon, maxLon, minLat, maxLat) => {
+      const cosLat = Math.cos((minLat + maxLat) / 2 * Math.PI / 180);
+      const spanX = (maxLon - minLon) * cosLat, spanY = (maxLat - minLat);
+      const scale = Math.min((W - 2 * PAD) / spanX, (H - 2 * PAD) / spanY);
+      const x = (lon - minLon) * cosLat * scale + (W - spanX * scale) / 2;
+      const y = (maxLat - lat) * scale + (H - spanY * scale) / 2;
+      return [x, y];
+    };
+    const fallbackBounds = { minLon: -9.55, maxLon: -6.15, minLat: 36.9, maxLat: 42.2 };
+    const setPinsOnly = (b) => {
+      const pinPoints = this.agencies.map(a => {
+        const [x, y] = project(a.lon, a.lat, b.minLon, b.maxLon, b.minLat, b.maxLat);
+        return { ...a, transformStr: `translate(${x.toFixed(1)},${y.toFixed(1)})` };
+      });
+      this.setState({ pinPoints });
+    };
+    const finishFromPolygons = (polygons) => {
+      let minLon = Infinity, maxLon = -Infinity, minLat = Infinity, maxLat = -Infinity;
+      polygons.forEach(poly => poly.forEach(ring => ring.forEach(([lon, lat]) => {
+        if (lon < minLon) minLon = lon; if (lon > maxLon) maxLon = lon;
+        if (lat < minLat) minLat = lat; if (lat > maxLat) maxLat = lat;
+      })));
+      const districtPaths = polygons.map(poly => poly.map(ring =>
+        'M' + ring.map(pt => project(pt[0], pt[1], minLon, maxLon, minLat, maxLat).map(v => v.toFixed(1)).join(',')).join('L') + 'Z'
+      ).join(' '));
+      const pinPoints = this.agencies.map(a => {
+        const [x, y] = project(a.lon, a.lat, minLon, maxLon, minLat, maxLat);
+        return { ...a, transformStr: `translate(${x.toFixed(1)},${y.toFixed(1)})` };
+      });
+      this.setState({ districtPaths, pinPoints });
+    };
+    const decodeTopoCountry = (topo, id) => {
+      const tr = topo.transform;
+      const decodedArcs = topo.arcs.map(arc => {
+        let x = 0, y = 0;
+        return arc.map(d => {
+          if (tr) { x += d[0]; y += d[1]; return [x * tr.scale[0] + tr.translate[0], y * tr.scale[1] + tr.translate[1]]; }
+          return [d[0], d[1]];
+        });
+      });
+      const arcCoords = (i) => i >= 0 ? decodedArcs[i] : decodedArcs[~i].slice().reverse();
+      const ringCoords = (idxs) => { let c = []; idxs.forEach((i, ix) => { const a = arcCoords(i); c = c.concat(ix === 0 ? a : a.slice(1)); }); return c; };
+      const polygons = [];
+      topo.objects.countries.geometries.filter(g => g.id === id).forEach(g => {
+        if (g.type === 'Polygon') polygons.push(g.arcs.map(ringCoords));
+        else if (g.type === 'MultiPolygon') g.arcs.forEach(poly => polygons.push(poly.map(ringCoords)));
+      });
+      return polygons;
+    };
+    // Primary: GISCO NUTS3 boundaries (official EU open data, CORS-enabled), filtered to Portugal.
+    fetch('https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_20M_2021_4326_LEVL_3.geojson')
+      .then(r => { if (!r.ok) throw new Error('gisco failed'); return r.json(); })
+      .then(fc => {
+        const ptFeatures = fc.features.filter(f => f.properties && f.properties.CNTR_CODE === 'PT' && !/^PT2|^PT3/.test(f.properties.NUTS_ID));
+        if (!ptFeatures.length) throw new Error('no PT features');
+        const polygons = [];
+        ptFeatures.forEach(f => {
+          const g = f.geometry;
+          if (g.type === 'Polygon') polygons.push(g.coordinates);
+          else if (g.type === 'MultiPolygon') g.coordinates.forEach(poly => polygons.push(poly));
+        });
+        finishFromPolygons(polygons);
+      })
+      .catch(() => {
+        // Fallback: world-atlas country outline (pinned per maps skill), Portugal ISO numeric id 620.
+        fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json')
+          .then(r => { if (!r.ok) throw new Error('world-atlas failed'); return r.json(); })
+          .then(topo => {
+            const polygons = decodeTopoCountry(topo, '620');
+            if (!polygons.length) throw new Error('no PT geometry');
+            finishFromPolygons(polygons);
+          })
+          .catch(() => setPinsOnly(fallbackBounds));
+      });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.checkSize);
+    window.removeEventListener('scroll', this.onScroll);
+    if (this.observer) this.observer.disconnect();
+  }
+  renderVals() {
+    const active = this.state.activeStep;
+    const dotStyle = (n) => `width:24px;height:24px;border-radius:50%;background:${active >= n ? 'var(--accent-gold)' : 'var(--maroon-700)'};margin:0 auto 16px;border:2px solid var(--maroon-500)`;
+    const wrapStyle = (n) => `position:relative;text-align:center;opacity:${active >= n ? 1 : 0.45};transition:opacity .4s ease`;
+    return {
+      isMobile: this.state.isMobile,
+      mobileMenuOpen: this.state.mobileMenuOpen && this.state.isMobile,
+      mobileServicesOpen: this.state.mobileServicesOpen,
+      servicesChevron: this.state.mobileServicesOpen ? '︿' : '﹀',
+      toggleMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMenu: () => this.setState({ mobileMenuOpen: false }),
+      toggleMobileServices: () => this.setState(s => ({ mobileServicesOpen: !s.mobileServicesOpen })),
+      headerStyle: `position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,64px);transition:background .25s ease,box-shadow .25s ease;background:${this.state.scrolled ? 'var(--maroon-700)' : 'transparent'};box-shadow:${this.state.scrolled ? '0 4px 20px rgba(0,0,0,0.18)' : 'none'}`,
+      services: this.services,
+      stepRef0: this.stepRefs[0], stepRef1: this.stepRefs[1], stepRef2: this.stepRefs[2], stepRef3: this.stepRefs[3],
+      step1DotStyle: dotStyle(1), step2DotStyle: dotStyle(2), step3DotStyle: dotStyle(3), step4DotStyle: dotStyle(4),
+      step1WrapStyle: wrapStyle(1), step2WrapStyle: wrapStyle(2), step3WrapStyle: wrapStyle(3), step4WrapStyle: wrapStyle(4),
+      lineFillStyle: `position:absolute;top:11px;left:6%;height:2px;background:var(--accent-gold);transition:width .4s ease;width:${active / 4 * 100}%`,
+      districtPaths: this.state.districtPaths,
+      pinPoints: this.state.pinPoints,
+      aboutRef: this.aboutRef,
+      aboutPhoto1Transform: (() => { const p = this.state.aboutProgress; const dx = -260 * p, r = -6 * p; return `translate(calc(-50% + ${dx.toFixed(1)}px), -50%) rotate(${r.toFixed(1)}deg)`; })(),
+      aboutPhoto2Transform: (() => { const p = this.state.aboutProgress; const r = 3 * p; return `translate(-50%, -50%) rotate(${r.toFixed(1)}deg)`; })(),
+      aboutPhoto3Transform: (() => { const p = this.state.aboutProgress; const dx = 260 * p, r = -3 * p; return `translate(calc(-50% + ${dx.toFixed(1)}px), -50%) rotate(${r.toFixed(1)}deg)`; })(),
+      testimonials: this.testimonials,
+      partnerBanks: this.partnerBanks,
+      testimonialTrackRef: this.testimonialTrackRef,
+      prevTestimonial: () => { if (this.testimonialTrackRef.current) this.testimonialTrackRef.current.scrollBy({ left: -284, behavior: 'smooth' }); },
+      nextTestimonial: () => { if (this.testimonialTrackRef.current) this.testimonialTrackRef.current.scrollBy({ left: 284, behavior: 'smooth' }); },
+      simOpen: this.state.simOpen,
+      simShowForm: this.state.simStep === 'form',
+      simShowResults: this.state.simStep === 'results',
+      simValor: this.state.simValor, simPrazo: this.state.simPrazo, simTaxa: this.state.simTaxa,
+      contactNome: this.state.contactNome, contactTelefone: this.state.contactTelefone, contactEmail: this.state.contactEmail,
+      simMensalidadeFmt: this.state.simResults ? this.fmtEuro(this.state.simResults.mensalidade) : '',
+      simJurosFmt: this.state.simResults ? this.fmtEuro(this.state.simResults.jurosTotal) : '',
+      simTotalFmt: this.state.simResults ? this.fmtEuro(this.state.simResults.valorTotal) : '',
+      openSimulator: () => this.setState({ simOpen: true, simStep: 'form' }),
+      closeSimulator: () => this.setState({ simOpen: false }),
+      stopPropagation: (e) => e.stopPropagation(),
+      onSimValorChange: (e) => this.setState({ simValor: e.target.value }),
+      onSimPrazoChange: (e) => this.setState({ simPrazo: e.target.value }),
+      onSimTaxaChange: (e) => this.setState({ simTaxa: e.target.value }),
+      onContactNomeChange: (e) => this.setState({ contactNome: e.target.value }),
+      onContactTelefoneChange: (e) => this.setState({ contactTelefone: e.target.value }),
+      onContactEmailChange: (e) => this.setState({ contactEmail: e.target.value }),
+      calcSimulation: () => {
+        const valor = parseFloat(this.state.simValor) || 0;
+        const prazo = parseInt(this.state.simPrazo) || 0;
+        const taxa = parseFloat(String(this.state.simTaxa).replace(',', '.')) || 0;
+        if (valor <= 0 || prazo <= 0) return;
+        const r = taxa / 100 / 12;
+        const mensalidade = r > 0 ? (valor * r) / (1 - Math.pow(1 + r, -prazo)) : valor / prazo;
+        const valorTotal = mensalidade * prazo;
+        const jurosTotal = valorTotal - valor;
+        this.setState({ simResults: { mensalidade, jurosTotal, valorTotal }, simStep: 'results' });
+      },
+      submitContact: () => { this.setState({ simOpen: false }); },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

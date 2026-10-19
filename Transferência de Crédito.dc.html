@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./ds-base.js"></script></helmet>
+<div style="font-family:var(--font-brand);background:var(--surface-page);color:var(--text-primary);min-height:100vh">
+<header style="{{ headerStyle }}">
+<a href="WebsiteHomepage.dc.html"><img src="assets/logo/logo-horizontal-dourado.png" style="height:65px;width:178px" alt="RA Créditos"></a>
+<sc-if value="{{ !isMobile }}" hint-placeholder-val="{{ true }}">
+<nav style="display:flex;align-items:center;gap:34px">
+<a href="Serviços.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Serviços</a>
+<a href="Sobre Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" style="background:var(--maroon-700);color:var(--text-inverse);font-weight:var(--fw-bold);font-size:14px;padding:11px 24px;border-radius:var(--radius-pill);text-decoration:none;border:1px solid var(--accent-gold)" style-hover="background:var(--maroon-300)">Fale Connosco</a>
+</nav>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ toggleMenu }}" aria-label="Abrir menu" style="background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px">
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+</button>
+</sc-if>
+</header>
+<sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:200;background:var(--maroon-700);display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,5vw,64px);background:var(--maroon-700)">
+<img src="assets/logo/logo-horizontal-branco.svg" style="height:26px">
+<button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background:none;border:none;color:var(--text-inverse);font-size:26px;cursor:pointer;line-height:1">×</button>
+</div>
+<nav style="display:flex;flex-direction:column;padding:8px clamp(20px,5vw,64px)">
+<a href="Serviços.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Serviços</a>
+<a href="Sobre Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" onClick="{{ closeMenu }}" style="margin-top:24px;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:14px;border-radius:var(--radius-pill);text-decoration:none;text-align:center">Fale Connosco</a>
+</nav>
+</div>
+</sc-if>
+<div style="height:110px"></div>
+
+<section style="background:var(--maroon-700);color:var(--text-inverse);padding:var(--space-8) clamp(20px,5vw,64px) var(--space-9)">
+<div style="max-width:700px;margin:0 auto;text-align:center">
+<div style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-gold);font-weight:var(--fw-bold);margin-bottom:14px">Transferência de Crédito</div>
+<h1 style="font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:var(--fw-black);line-height:1.15;margin:0 0 18px">Simplifique e poupe nas suas finanças</h1>
+<p style="font-size:15.5px;line-height:1.65;color:var(--text-inverse-muted);font-weight:var(--fw-light);margin:0 0 26px">Oferecemos soluções de crédito consolidado para reunir todas as suas dívidas numa única prestação mensal, com um só prazo e taxas mais vantajosas, dando-lhe maior controlo do orçamento.</p>
+<a href="#simulador" style="background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:13px 28px;border-radius:var(--radius-pill);text-decoration:none;display:inline-block">Faça a sua simulação de crédito</a>
+</div>
+</section>
+
+<section style="padding:var(--space-9) clamp(20px,5vw,64px);max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start">
+<div>
+<h2 style="font-size:22px;font-weight:var(--fw-black);color:var(--accent-maroon);margin:0 0 22px">Vantagens de transferir o seu crédito</h2>
+<div style="display:flex;flex-direction:column;gap:18px">
+<sc-for list="{{ benefits }}" as="b" hint-placeholder-count="5">
+<div style="display:flex;gap:14px;align-items:flex-start">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#AB9150" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+<div style="font-size:15px;line-height:1.5;color:var(--text-secondary);font-weight:var(--fw-regular)">{{ b }}</div>
+</div>
+</sc-for>
+</div>
+
+<div style="margin-top:var(--space-8)">
+<h2 style="font-size:20px;font-weight:var(--fw-black);color:var(--accent-maroon);margin:0 0 18px">Documentos necessários</h2>
+<div style="display:flex;flex-direction:column;gap:14px">
+<sc-for list="{{ documents }}" as="d" hint-placeholder-count="5">
+<div style="display:flex;gap:12px;align-items:center;padding:14px 16px;background:var(--cream-300);border-radius:var(--radius-sm)">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-maroon)" stroke-width="1.8"><path d="M7 3h8l4 4v14H7zM15 3v4h4"></path></svg>
+<div style="font-size:14px;color:var(--text-primary);font-weight:var(--fw-regular)">{{ d }}</div>
+</div>
+</sc-for>
+</div>
+<a href="WebsiteHomepage.dc.html#contacto" style="display:inline-block;margin-top:20px;font-size:14px;font-weight:var(--fw-bold);color:var(--accent-maroon);text-decoration:none;border-bottom:1px solid var(--accent-maroon)">Converse com um gestor →</a>
+</div>
+</div>
+
+<div id="simulador" style="background:var(--maroon-700);border-radius:var(--radius-lg);padding:30px;position:sticky;top:130px">
+<div style="font-size:18px;font-weight:var(--fw-black);color:var(--text-inverse);margin-bottom:18px">Qual crédito deseja?</div>
+<select style="width:100%;border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);color:var(--text-primary);background:var(--white);margin-bottom:16px">
+<sc-for list="{{ creditOptions }}" as="o" hint-placeholder-count="7"><option>{{ o }}</option></sc-for>
+</select>
+<button style="width:100%;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:13px;border-radius:var(--radius-pill);border:none;cursor:pointer">Calcular prestação</button>
+</div>
+</section>
+
+<footer style="background:var(--maroon-700);color:var(--text-inverse-muted);text-align:center;padding:24px;font-size:12.5px;font-weight:var(--fw-light);border-top:1px solid var(--border-on-dark)">Peculiar Time, Lda. — Intermediário de Crédito Vinculado n.º 0004632, registado no Banco de Portugal.</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false, mobileMenuOpen: false, scrolled: false };
+  benefits = [
+    "Negociação com diversas instituições bancárias.",
+    "Taxas de juro exclusivas e competitivas.",
+    "Seguros com condições vantajosas.",
+    "Acompanhamento na renegociação.",
+    "Gestão integral da documentação.",
+  ];
+  documents = ["Documento de Identificação", "Comprovativos de Rendimento", "Declaração de IRS e Nota de Liquidação", "Contrato de trabalho", "Comprovativo de outros rendimentos"];
+  creditOptions = ["Crédito Habitação", "Renegociação de Crédito", "Crédito Pessoal", "Crédito Automóvel", "Crédito Auto-construção", "Crédito Hipotecário", "Crédito Consolidado"];
+  componentDidMount() {
+    this.checkSize = () => this.setState({ isMobile: window.innerWidth < 900 });
+    this.checkSize();
+    window.addEventListener('resize', this.checkSize);
+    this.onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.checkSize);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+  renderVals() {
+    return {
+      benefits: this.benefits, documents: this.documents, creditOptions: this.creditOptions,
+      isMobile: this.state.isMobile,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMenu: () => this.setState({ mobileMenuOpen: false }),
+      headerStyle: `position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,64px);transition:background .25s ease,box-shadow .25s ease;background:var(--maroon-700);box-shadow:${this.state.scrolled ? '0 4px 20px rgba(0,0,0,0.18)' : 'none'}`,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./ds-base.js"></script><script src="./image-slot.js"></script></helmet>
+<div style="font-family:var(--font-brand);background:var(--surface-page);color:var(--text-primary);min-height:100vh">
+<header style="{{ headerStyle }}">
+<a href="WebsiteHomepage.dc.html"><img src="assets/logo/logo-horizontal-dourado.png" style="height:65px;width:178px" alt="RA Créditos"></a>
+<sc-if value="{{ !isMobile }}" hint-placeholder-val="{{ true }}">
+<nav style="display:flex;align-items:center;gap:34px">
+<a href="Serviços.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Serviços</a>
+<a href="Sobre Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" style="font-size:14.5px;font-weight:var(--fw-bold);color:var(--text-inverse)" style-hover="color:var(--accent-gold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" style="background:var(--maroon-700);color:var(--text-inverse);font-weight:var(--fw-bold);font-size:14px;padding:11px 24px;border-radius:var(--radius-pill);text-decoration:none;border:1px solid var(--accent-gold)" style-hover="background:var(--maroon-300)">Fale Connosco</a>
+</nav>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ toggleMenu }}" aria-label="Abrir menu" style="background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px">
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+<span style="width:24px;height:2px;background:var(--text-inverse)"></span>
+</button>
+</sc-if>
+</header>
+<sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:200;background:var(--maroon-700);display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,5vw,64px);background:var(--maroon-700)">
+<img src="assets/logo/logo-horizontal-branco.svg" style="height:26px">
+<button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background:none;border:none;color:var(--text-inverse);font-size:26px;cursor:pointer;line-height:1">×</button>
+</div>
+<nav style="display:flex;flex-direction:column;padding:8px clamp(20px,5vw,64px)">
+<a href="Serviços.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Serviços</a>
+<a href="Sobre Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Sobre Nós</a>
+<a href="Onde Estamos.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Onde Estamos</a>
+<a href="Junte-se a Nós.dc.html" onClick="{{ closeMenu }}" style="padding:18px 0;border-bottom:1px solid var(--border-on-dark);color:var(--text-inverse);font-size:17px;font-weight:var(--fw-bold)">Junte-se a Nós</a>
+<a href="WebsiteHomepage.dc.html#contacto" onClick="{{ closeMenu }}" style="margin-top:24px;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:14px;border-radius:var(--radius-pill);text-decoration:none;text-align:center">Fale Connosco</a>
+</nav>
+</div>
+</sc-if>
+<div style="height:110px"></div>
+
+<section style="padding:0 clamp(20px,5vw,64px) var(--space-9);max-width:1000px;margin:0 auto">
+<div style="display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:center;margin-bottom:var(--space-8)">
+<image-slot id="gestor-ana-cunha-photo" shape="rect" placeholder="Foto profissional de Ana Cunha" style="width:100%;aspect-ratio:1/1;border-radius:var(--radius-sm)"></image-slot>
+<div>
+<div style="font-size:24px;font-weight:var(--fw-black);color:var(--accent-maroon)">Ana Cunha</div>
+<div style="font-size:13px;font-weight:var(--fw-bold);color:#B98A8F;text-transform:uppercase;letter-spacing:0.03em;margin:4px 0 16px">Gestora de Crédito</div>
+<div style="display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--text-secondary);font-weight:var(--fw-light)">
+<span>ana.cunha@racreditos.pt</span>
+<span>+351 910 000 000 (chamada para rede móvel nacional)</span>
+<span style="opacity:0.7">Registo n.º 0004632</span>
+</div>
+</div>
+</div>
+
+<p style="font-size:15px;line-height:1.7;color:var(--text-secondary);font-weight:var(--fw-light);max-width:680px;margin:0 0 var(--space-8)">Ana Cunha é especialista na análise de necessidades do cliente. Com vários anos de experiência no setor financeiro, acompanhou processos junto de diferentes instituições bancárias. Destaca-se pela transparência, flexibilidade e agilidade em cada etapa do processo.</p>
+
+<div style="background:var(--maroon-700);border-radius:var(--radius-lg);padding:32px;margin-bottom:var(--space-8)">
+<div style="font-size:18px;font-weight:var(--fw-black);color:var(--text-inverse);margin-bottom:20px">Peça a sua avaliação gratuita</div>
+<div style="display:flex;flex-direction:column;gap:14px;max-width:520px">
+<select style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+<option>Selecione *</option><option>Crédito Habitação</option><option>Crédito Pessoal</option><option>Crédito Consolidado</option><option>Crédito Auto-construção</option><option>Crédito Automóvel</option><option>Outros assuntos</option>
+</select>
+<input placeholder="Nome*" style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+<input placeholder="Número de Telemóvel*" style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+<input placeholder="E-mail" style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+<input placeholder="Melhor horário para ligar" style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary)">
+<textarea placeholder="Mensagem" rows="3" style="border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:var(--font-brand);background:var(--white);color:var(--text-primary);resize:vertical"></textarea>
+<label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text-inverse-muted);font-weight:var(--fw-light)"><input type="checkbox" style="margin-top:2px">Li e aceito a política de privacidade</label>
+<button style="background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:14px;border-radius:var(--radius-pill);border:none;cursor:pointer">Avaliação Gratuita</button>
+</div>
+</div>
+
+<h2 style="font-size:20px;font-weight:var(--fw-black);color:var(--accent-maroon);margin:0 0 24px">Porquê escolher um gestor da RA Créditos</h2>
+<div style="display:flex;flex-direction:column;gap:18px">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+<div style="display:flex;gap:16px;align-items:flex-start">
+<div style="width:32px;height:32px;border-radius:50%;background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-black);font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ $index }}</div>
+<div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);font-weight:var(--fw-regular);padding-top:4px">{{ s }}</div>
+</div>
+</sc-for>
+</div>
+
+<div style="text-align:center;margin-top:var(--space-8)">
+<span style="background:var(--accent-gold);color:var(--maroon-500);font-weight:var(--fw-bold);font-size:15px;padding:13px 30px;border-radius:var(--radius-pill);display:inline-block">Avaliação Gratuita</span>
+</div>
+</section>
+
+<footer style="background:var(--maroon-700);color:var(--text-inverse-muted);text-align:center;padding:24px;font-size:12.5px;font-weight:var(--fw-light);border-top:1px solid var(--border-on-dark)">Peculiar Time LDA – Intermediário de Crédito Vinculado N.º 4632 / Verificável em: BPortugal</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false, mobileMenuOpen: false, scrolled: false };
+  steps = [
+    "Montagem do processo e orçamento.",
+    "Comparação de propostas junto de diferentes instituições.",
+    "Negociação e aprovação das condições.",
+    "Preparação e avaliação do imóvel.",
+    "Organização da documentação e escritura.",
+  ];
+  componentDidMount() {
+    this.checkSize = () => this.setState({ isMobile: window.innerWidth < 900 });
+    this.checkSize();
+    window.addEventListener('resize', this.checkSize);
+    this.onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this.onScroll);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.checkSize);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+  renderVals() {
+    return {
+      steps: this.steps,
+      isMobile: this.state.isMobile,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMenu: () => this.setState({ mobileMenuOpen: false }),
+      headerStyle: `position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,64px);transition:background .25s ease,box-shadow .25s ease;background:var(--maroon-700);box-shadow:${this.state.scrolled ? '0 4px 20px rgba(0,0,0,0.18)' : 'none'}`,
+    };
+  }
+}
+
+</script>
+</body>
+</html>
